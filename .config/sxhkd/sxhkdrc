@@ -1,0 +1,87 @@
+################################################################
+######                    SXHKD CONFIG                    ######
+################################################################
+
+################################
+###     Launch Shortcuts     ###
+################################
+
+# Launch terminal
+alt + Return 
+  gnome-terminal
+
+# GUI System monitor
+ctrl + alt + Delete
+  gnome-system-monitor
+
+# Rofi app launcher
+alt + d
+  rofi -show run
+
+
+################################
+###      BSPWM Controls      ###
+################################
+
+# Close/restart bspwm
+alt + shift + {e,r}
+  bspc {quit,wm -r}
+
+# Kill window
+alt + shift + q
+  bspc node -c
+
+# Lock
+alt + l
+  slock
+
+
+################################
+###   Workspace Controls     ###
+################################
+
+# Move to or send window to workspace.
+alt + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '^{1-5}'
+
+
+################################
+###     Tiling Controls      ###
+################################
+
+# Alternate between the tiled and monocle layout
+alt + shift + space
+  bspc node -t "~"{floating,tiled}
+
+# Send the window to another edge of the screen
+alt + {_,shift + }{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
+
+#Rotate tree
+alt + shift + {d,a}
+  bspc node @/ -C {forward,backward}
+
+#Turn gaps off
+alt + Tab
+  bspc config window_gap		0
+
+#Turn gaps on
+alt + shift + Tab
+  bspc config window_gap		15
+
+
+################################
+###     Moving/Resizing      ###
+################################
+
+# Expanding windows
+super + alt + {Left,Right,Up,Down}
+  bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+
+# Shrinking windows
+super + ctrl + {Left,Right,Up,Down}
+  bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+
+# Move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
