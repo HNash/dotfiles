@@ -14,14 +14,21 @@ sxhkd &
 pkill compton
 compton &
 
+pkill mpd
+mpd
+mpc ls | mpc add
+
 #Restore wallpaper
 nitrogen --restore
 
-#Set up 5 workspaces
+#Set up 5 workspaces on active monitor
+xrandr --output HDMI-1-0 --primary --mode 1920x1080 --rotate normal --output eDP-1 --mode 1920x1080 --rotate normal --right-of HDMI-1-0
+sleep 2s
 bspc monitor -d 1 2 3 4 5
 
-# Launching polybar
-bash "$HOME"/.config/polybar/launch.sh --blocks
+
+# Launching polybar and plank
+bash $HOME/.config/polybar/launch.sh --docky
 
 ################################
 ###      Set Parameters      ###
@@ -31,11 +38,14 @@ xsetroot -cursor_name left_ptr
 
 #Gaps and border thickness
 bspc config border_width	0
+#bspc config active_border_color '#E0E0E0'
+#bspc config normal_border_color '#2C2C2C'
+#bspc config focused_border_color '#E0E0E0'
 bspc config window_gap		10
 bspc config automatic_scheme    automatic
 
 bspc config split_ratio		0.50
-bspc config focus_follows_pointer	true
+bspc config focus_follows_pointer	false
 bspc config pointer_modifier	mod1
 
 # Starting SXHKD Keyboard Daemon
@@ -49,3 +59,5 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 bspc rule -a Gnome-calculator state=floating
 bspc rule -a Gnome-terminal state=floating
 bspc rule -a Gnome-system-monitor state=floating
+bspc rule -a cinnamon-settings state=floating
+bspc rule -a cinnamon-settings network state=floating
