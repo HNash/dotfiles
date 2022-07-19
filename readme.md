@@ -1,6 +1,6 @@
 <h2>IMPORTANT NOTE ON MONITOR CONTROL:</h2>
 <br>
-Monitor control is only hard-coded in .config/polybar/docky/config.ini. The rest is automated for a laptop (eDP\*) and HDMI monitor (HDMI\*).
+Monitor control is only hard-coded in .config/polybar/docky/config.ini. The rest is automated for a laptop (eDP*) and HDMI monitor (HDMI*).
 <br>
 <br>
 The hard-coded part is the "monitor= _____" part of [bar/laptopbar] and [bar/monitorbar] in .config/polybar/docky/config.ini.
