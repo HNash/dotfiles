@@ -1,4 +1,4 @@
-<h2>IMPORTANT NOTE ON MONITOR CONTROL:</h2>
+<h2>IMPORTANT: Note on Monitor Control</h2>
 <br>
 Monitor control is only hard-coded in .config/polybar/docky/config.ini. The rest is automated for a laptop (eDP*) and HDMI monitor (HDMI*).
 <br>
