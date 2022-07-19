@@ -26,7 +26,7 @@ slop
 <br>
 <br>
 <h2>Other:</h2>
-Theme: Graphite https://github.com/vinceliuice/Graphite-gtk-theme<br>
+Theme: <a href="https://github.com/vinceliuice/Graphite-gtk-theme">Graphite</a><br>
 Icons: Tela-grey-dark<br>
 Font: Iosevka<br>
 File Browser: Thunar<br>
