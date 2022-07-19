@@ -20,7 +20,7 @@ alt + d
 
 # Rofi file browser
 alt + f
-  rofi -show file-browser
+  rofi -show file-browser -theme ~/.config/polybar/docky/scripts/rofi/launcher.rasi
 
 
 ################################
@@ -41,7 +41,7 @@ alt + shift + q
 
 # Lock
 alt + l
-  slock
+  bash /home/hn/lock.sh
 
 
 ################################
@@ -49,8 +49,8 @@ alt + l
 ################################
 
 # Move to or send window to workspace.
-alt + {_,shift + }{1-5}
-	bspc {desktop -f,node -d} '^{1-5}'
+alt + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}'
 
 
 ################################
@@ -60,6 +60,10 @@ alt + {_,shift + }{1-5}
 # Alternate between the tiled and monocle layout
 alt + shift + space
   bspc node -t "~"{floating,tiled}
+
+# Alternate between fullscreen and tiled
+alt + shift + f
+  bspc node -t "~"{fullscreen,tiled}
 
 # Send the window to another edge of the screen
 alt + {_,shift + }{Left,Down,Up,Right}

@@ -4,6 +4,9 @@ dir="$HOME/.config/polybar"
 themes=(`ls --hide="launch.sh" $dir`)
 
 launch_bar() {
+    SCREEN=$(xrandr -q | grep " connected" | grep HDMI | cut -d " " -f1)
+    LAPTOP=$(xrandr -q | grep " connected" | grep eDP | cut -d " " -f1)
+    LEN=${#SCREEN}
 	# Terminate already running bar instances
 	killall -q polybar
 
@@ -17,7 +20,13 @@ launch_bar() {
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-		polybar -q main -c "$dir/$style/config.ini" &	
+        if [ $LEN!=0 ]
+        then
+		    polybar -q laptopbar -c "$dir/$style/config.ini" &	
+		    polybar -q monitorbar -c "$dir/$style/config.ini" &	
+        else
+            polybar -q main -c "$dir/$style/config.ini" &	
+        fi
 	fi
 }
 
