@@ -20,13 +20,13 @@ launch_bar() {
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
 	else
-        if [ $LEN!=0 ]
-        then
-		    polybar -q laptopbar -c "$dir/$style/config.ini" &	
-		    polybar -q monitorbar -c "$dir/$style/config.ini" &	
-        else
-            polybar -q main -c "$dir/$style/config.ini" &	
-        fi
+        	if test $LEN -gt 0
+        	then
+			polybar -q laptopbar -c "$dir/$style/config.ini" &	
+			polybar -q monitorbar -c "$dir/$style/config.ini" &	
+        	else
+            		polybar -q main -c "$dir/$style/config.ini" &	
+        	fi
 	fi
 }
 

@@ -21,7 +21,7 @@ nitrogen --restore
 SCREEN=$(xrandr -q | grep " connected" | grep HDMI | cut -d " " -f1)
 LAPTOP=$(xrandr -q | grep " connected" | grep eDP | cut -d " " -f1)
 LEN=${#SCREEN}
-if [ $LEN!=0 ]
+if test $LEN -gt 0
 then
     xrandr --output $SCREEN --primary --mode 1920x1080 --rotate normal --output $LAPTOP --mode 1920x1080 --rotate normal --right-of $SCREEN
     sleep 2s
@@ -30,7 +30,7 @@ then
     bspc monitor -f $LAPTOP
     bspc monitor $LAPTOP -d 6 7 8
 else
-    bspc monitor -d 1 2 3 4 5
+    bspc monitor $LAPTOP -d 1 2 3 4 5
 fi
 
 
