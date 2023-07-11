@@ -1,0 +1,71 @@
+#! /bin/sh
+
+xset -dpms # Disables Energy Star features
+xset s off # Disables screen saver
+xinput set-prop 14 366 1 #Turn tap to click on for touchpad
+xinput set-prop 14 345 1 #Turn natural scrolling on for touchpad
+
+pkill sxhkd
+# Starting SXHKD Keyboard Daemon
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+pkill picom
+sleep 1
+picom &
+
+nitrogen --restore
+
+#Set up 5 workspaces on active monitor
+SCREEN=$(xrandr -q | grep " connected" | grep HDMI | cut -d " " -f1)
+LAPTOP=$(xrandr -q | grep " connected" | grep eDP | cut -d " " -f1)
+LEN=${#SCREEN}
+if test $LEN -gt 0
+then
+    xrandr --output $SCREEN --primary --mode 1920x1080 --rotate normal --output $LAPTOP --mode 1920x1080 --rotate normal --right-of $SCREEN
+    sleep 2s
+    bspc monitor -f $SCREEN
+    bspc monitor $SCREEN -d 1 2 3 4 5
+    bspc monitor -f $LAPTOP
+    bspc desktop -f 1
+else
+    bspc monitor $LAPTOP -d 1 2 3 4 5
+    bspc desktop -f 1
+fi
+
+pkill polybar
+/home/cloudberry/.config/polybar/launch.sh --colorblocks &
+
+#pkill plank
+#plank &
+
+################################
+###      Set Parameters      ###
+################################
+#Fix pointer
+xsetroot -cursor_name left_ptr
+
+#Gaps and border thickness
+bspc config border_width	2
+bspc config active_border_color '#2C2C2C'
+bspc config normal_border_color '#2C2C2C'
+bspc config focused_border_color '#FFFFFF'
+bspc config window_gap		25
+bspc config automatic_scheme    automatic
+
+bspc config split_ratio		0.50
+bspc config focus_follows_pointer	false
+bspc config pointer_modifier	mod1
+
+################################
+###        BSPC Rules        ###
+################################
+
+bspc rule -a scpad sticky=on state=floating rectangle=1915x400+0+32
+
+bspc rule -a Zathura state=tiled
+bspc rule -a Gnome-calculator state=floating
+bspc rule -a Gnome-system-monitor state=floating
+bspc rule -a cinnamon-settings state=floating
+bspc rule -a "cinnamon-settings calendar" state=floating
+bspc rule -a "cinnamon-settings sound" state=floating
+bspc rule -a "cinnamon-settings network" state=floating
