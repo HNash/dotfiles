@@ -1,0 +1,14 @@
+Make the external monitor stay on when the laptop lid is closed:
+sudo sed -i '/IgnoreLid=/{s/false/true/}' /etc/UPower/UPower.conf
+sudo sed -i '/HandleLidSwitch/{s/#//;s/suspend/ignore/}' /etc/systemd/logind.conf
+sudo systemctl restart systemd-logind
+
+Turn on touchpad:
+// List all input devices
+xinput --list
+// Find the touchpad id. In this example, it's 14. List the properties
+xinput --list-props 14
+// Find the property "tap to click", it will have a number in parentheses. Here it's 366
+xinput set-prop 14 366 1
+
+Copy scratchpad script from .local/scripts
