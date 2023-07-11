@@ -1,35 +1,17 @@
-<img src="screen.png" alt="Preview">
-
-<h2>IMPORTANT: Note on Monitor Control</h2>
-<br>
-Monitor control is only hard-coded in .config/polybar/docky/config.ini. The rest is automated for a laptop (eDP*) and HDMI monitor (HDMI*).
-<br>
-<br>
-The hard-coded part is the "monitor= _____" part of [bar/laptopbar] and [bar/monitorbar] in .config/polybar/docky/config.ini.
-<br>
-<br>
-Note that .config/polybar/launch.sh looks to see if there is a monitor connected. If so, it uses [bar/laptopbar] and [bar/monitorbar]. Otherwise it uses [bar/main]. All three types are defined in .config/polybar/docky/config.ini.
-<br>
-<br>
-<h2>Dependencies:</h2>
-bspwm/sxhkd<br>
-polybar<br>
-compton<br>
-rofi<br>
-polybar-themes<br>
-i3lock<br>
-imagemagick<br>
-scrot<br>
-wmctrl<br>
-xprop<br>
-slop
-<br>
-<br>
-<h2>Other:</h2>
-Theme: <a href="https://github.com/vinceliuice/Graphite-gtk-theme">Graphite</a><br>
-Icons: Tela-grey-dark<br>
+<h2>Overview</h2>
+WM: bspwm<br>
+Bar: Polybar (edited colorblocks theme)<br>
+GTK Theme: <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
+Icons: Tela<br>
+Compositor: picom<br>
+Launcher: rofi<br>
 Font: Iosevka<br>
-File Browser: Thunar<br>
-Color Scheme: Chalky (part of Gogh)<br>
+File Browser: Nautilus<br>
+Color Scheme: Chalky (Gogh)<br>
 
-
+<h2>Helpful Information</h2>
+<li>Background color is #2C2C2C for app-specific themes </li>
+<li>bspwm turns on tap to click using my specific touchpad ID. See "Essential Configuration" file for more information.</li>
+<li>bspwm is configured for a laptop. When connected to an external monitor, bspwm places the laptop screen to the right of the monitor with no workspaces, and puts 5 workspaces on the monitor. </li>
+<li>The scratchpad script in .local uses kitty and requires xdotool. Another terminal can used.</li>
+<li>Kitty is a bitch to install in Ubuntu/Mint. Build from source for latest version (to use the themes kitten).</li>
