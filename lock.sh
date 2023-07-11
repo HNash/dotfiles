@@ -7,7 +7,7 @@
 IMAGE=/tmp/i3lock.png
 CHECK=$(xrandr -q | grep " connected" | grep HDMI)
 LEN=${#CHECK}
-if [ $LEN!=0 ]
+if [ $LEN -gt 0 ]
 then
 	LOCK=lock2.png
 else
@@ -31,6 +31,6 @@ BLURTYPE="0x10" # 2.90s
 # Get the screenshot, add the blur and lock the screen with it
 $SCREENSHOT
 convert $IMAGE -blur 0x10 $IMAGE
-convert $IMAGE $LOCK -gravity center -composite $IMAGE
+#convert $IMAGE $LOCK -gravity center -composite $IMAGE
 i3lock -u -i $IMAGE
 rm $IMAGE
