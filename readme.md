@@ -2,7 +2,7 @@
 <img src="screen1.png" alt="Screenshot 1" width="800" height="450">
 <h2>Overview</h2>
 <b>WM:</b> bspwm<br>
-<b>Bar:</b> Polybar (edited colorblocks theme)<br>
+<b>Bar:</b> Eww (edited version of <a href=https://github.com/adi1090x/widgets>Arin</a> by adi1090x)<br>
 <b>GTK Theme:</b> <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
 <b>Icons:</b> Tela<br>
 <b>Compositor:</b> picom<br>
