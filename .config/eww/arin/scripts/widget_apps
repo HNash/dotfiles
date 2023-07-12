@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [[ "$1" == "--tr" ]]; then
+	gnome-terminal &
+
+elif [[ "$1" == "--ff" ]]; then
+	brave-browser &
+
+elif [[ "$1" == "--fm" ]]; then
+	nautilus ~ &
+
+elif [[ "$1" == "--ge" ]]; then
+	geany &
+
+elif [[ "$1" == "--dc" ]]; then
+	brave-browser "https://www.discord.com/" &
+
+elif [[ "$1" == "--tg" ]]; then
+	signal-desktop &
+
+elif [[ "$1" == "--rd" ]]; then
+	brave-browser "www.4chan.org"
+
+elif [[ "$1" == "--ml" ]]; then
+	brave-browser "https://mail.google.com"
+
+elif [[ "$1" == "--pow" ]]; then
+	cinnamon-settings &
+
+elif [[ "$1" == "--nm" ]]; then
+	cinnamon-settings network &
+
+fi

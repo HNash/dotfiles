@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ "$1" == "--menu" ]]; then
+	rofi -no-config -no-lazy-grab -show drun -modi drun -theme /home/cloudberry/.config/eww/arin/launcher.rasi
+
+elif [[ "$1" == "--search" ]]; then
+	brave-browser "https://google.com"
+
+fi
