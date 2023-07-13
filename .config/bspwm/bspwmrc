@@ -32,11 +32,28 @@ else
     bspc desktop -f 1
 fi
 
-pkill polybar
-/home/cloudberry/.config/polybar/launch.sh --colorblocks &
+#############RUNNING EWW#############
+EWW=`which eww`
+CFG="$HOME/.config/eww/arin"
 
-#pkill plank
-#plank &
+## Run eww daemon if not running already
+if [[ ! `pidof eww` ]]; then
+	${EWW} daemon
+	sleep 1
+fi
+
+## Open widgets 
+run_eww() {
+	${EWW} --config "$CFG" open-many \
+           search \
+           apps \
+		   weather \
+		   system
+}
+
+## Launch or close widgets accordingly
+run_eww
+######################################
 
 ################################
 ###      Set Parameters      ###
@@ -48,8 +65,8 @@ xsetroot -cursor_name left_ptr
 bspc config border_width	2
 bspc config active_border_color '#2C2C2C'
 bspc config normal_border_color '#2C2C2C'
-bspc config focused_border_color '#FFFFFF'
-bspc config window_gap		25
+bspc config focused_border_color '#9C9C9C'
+bspc config window_gap		10
 bspc config automatic_scheme    automatic
 
 bspc config split_ratio		0.50
@@ -60,7 +77,7 @@ bspc config pointer_modifier	mod1
 ###        BSPC Rules        ###
 ################################
 
-bspc rule -a scpad sticky=on state=floating rectangle=1915x400+0+32
+bspc rule -a scpad sticky=on state=floating rectangle=1915x400+0+37
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Gnome-calculator state=floating

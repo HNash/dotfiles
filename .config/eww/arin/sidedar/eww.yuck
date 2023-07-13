@@ -77,8 +77,8 @@
 ;; powermenu
 (defwindow logout
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "112px"
+           :geometry (geometry :x "10px"
+                               :y "117px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")
@@ -88,8 +88,8 @@
 
 (defwindow suspend
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "72px"
+           :geometry (geometry :x "10px"
+                               :y "77px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")
@@ -99,8 +99,8 @@
 
 (defwindow lock
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "32px"
+           :geometry (geometry :x "10px"
+                               :y "37px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")
@@ -110,8 +110,8 @@
 
 (defwindow reboot
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "152px"
+           :geometry (geometry :x "10px"
+                               :y "157px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")
@@ -121,8 +121,8 @@
 
 (defwindow shutdown
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "192px"
+           :geometry (geometry :x "10px"
+                               :y "197px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")
@@ -133,8 +133,8 @@
 ;; quotes
 (defwindow quotes
            :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "232px"
+           :geometry (geometry :x "10px"
+                               :y "237px"
                                :width "40px"
                                :height "40px"
                                :anchor "top left")

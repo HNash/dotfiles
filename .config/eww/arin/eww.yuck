@@ -13,9 +13,9 @@
 (defpoll DATE :interval "5s" `date +\"%A, %B %d\"`)
 
 ;; Weather vars
-(defpoll ICON :interval "15m" `scripts/weather_info --icon`)
-(defpoll TEMP :interval "15m" `scripts/weather_info --temp`)
-(defpoll HEX :interval "15m" `scripts/weather_info --hex`)
+(defpoll ICON :interval "15m" `scripts/weather_info --getdata  & scripts/weather_info --icon`)
+(defpoll TEMP :interval "15m" `scripts/weather_info --getdata  & scripts/weather_info --temp`)
+(defpoll HEX :interval "15m" `scripts/weather_info --getdata  & scripts/weather_info --hex`)
 
 ;; Music vars
 (defpoll SONG :interval "1s" `scripts/music_info --song`)
@@ -56,10 +56,7 @@
 			(box :orientation "h" :spacing 15 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 				(button :style "background-image: url('images/icons/apps/terminal.png');" :class "appicon" :onclick "scripts/widget_apps --tr")
 				(button :style "background-image: url('images/icons/apps/files.png');" :class "appicon" :onclick "scripts/widget_apps --fm")
-				(button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff")
-				(button :style "background-image: url('images/icons/apps/reddit.png');" :class "appicon" :onclick "scripts/widget_apps --rd")
-                (button :style "background-image: url('images/icons/apps/telegram.png');" :class "appicon" :onclick "scripts/widget_apps --tg")
-				(button :style "background-image: url('images/icons/apps/discord.png');" :class "appicon" :onclick "scripts/widget_apps --dc"))))
+				(button :style "background-image: url('images/icons/apps/firefox.png');" :class "appicon" :onclick "scripts/widget_apps --ff"))))
 
 ;; music
 (defwidget music [] 
@@ -77,12 +74,13 @@
 
 ;; weather
 (defwidget weather [] 
-		(box :class "dockbox" 
-			(box :class "clockbox" :orientation "h" :spacing 15 :valign "center" :halign "start"  :space-evenly "false" :vexpand "false"
-                (button :onclick "sidedar/toggle_sidebar" :hexpand "false"				
-                    (label :class "time" :halign "start" :wrap "false" :text TIME))
-                (button :onclick "sidedar/toggle_sidebar" :hexpand "false"				    
-                    (label :class "date" :halign "start" :wrap "false" :text DATE)))))
+		(box :class "dockbox"
+			(box :class "clockbox" :orientation "h" :spacing 15 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "time" :halign "start" :wrap "false" :limit-width 25 :text TIME)
+				(label :class "date" :halign "start" :wrap "false" :limit-width 25 :text DATE))
+			(box :class "weatherbox" :orientation "h" :spacing 15 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
+				(label :class "weathericon" :style "color: ${HEX};" :text ICON)
+				(label :class "weathertemp" :text TEMP))))
 
 ;; system
 (defwidget system [] 
@@ -122,7 +120,7 @@
            :monitor 0
            :geometry (geometry :x "50px"
                                :y "5px"
-                               :width "230px"
+                               :width "115px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
@@ -148,9 +146,9 @@
 ;; weather
 (defwindow weather
            :monitor 0
-           :geometry (geometry :x "820px"
+           :geometry (geometry :x "710px"
                                :y "5px"
-                               :width "280px"
+                               :width "500px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
