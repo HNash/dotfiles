@@ -11,7 +11,7 @@ net_stat () {
 			echo "Online"
 			echo "images/icons/system/wifi.png"
 		else
-			echo "$SSID"
+			echo "Online"
 			echo "images/icons/system/wifi.png"
 		fi
 	else

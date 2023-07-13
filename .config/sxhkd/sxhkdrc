@@ -107,10 +107,10 @@ super + {Left,Down,Up,Right}
 ################################
 
 XF86AudioRaiseVolume
-  amixer set Master 5%+
+  amixer set Master 5%+ unmute
 
 XF86AudioLowerVolume
-  amixer set Master 5%-
+  amixer set Master 5%- unmute
 
 XF86AudioMute
   pactl set-sink-mute `pactl get-default-sink` toggle

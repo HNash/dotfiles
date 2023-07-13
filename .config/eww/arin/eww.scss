@@ -3,13 +3,13 @@
 	all: unset;
 	font-family: feather;
 	font-family: "JetBrains Mono";
-	color: #2C2C2C;
+	color: #FFFFFF;
 }
 
 /** Bar ***********************************/
 .dockbox {
-	background-color: #FFFFFF;
-	border: 2px solid #2C2C2C;
+	background-color: #2C2C2C;
+	border: 0px solid #2C2C2C;
 	border-radius: 12px;
 }
 
@@ -31,27 +31,29 @@
 .workspace {
 	background-color: #C04364;
 	color: #ffffff;
-	border: 1px solid #161616;
-	border-radius: 25px;
+	border: 0px solid #161616;
+	border-radius: 12px;
 	font-size : 12px;
-	padding: 0px 6px 0px 6px;
-	margin: 1px 0px 0px 0px;
+	padding: 0px 6px 0px 5px;
+	margin: 2px 0px 0px -5px;
 	font-weight : bold;
 }
 
 /** Clock ********************************************/
 .clockbox {
-	margin : 0px 0px 0px 15px;
+	margin : 0px 0px 0px 0px;
 }
 
 .time {
 	font-size : 14px;
 	font-weight : bold;
+	margin : 1px 0px 0px 0px;
 }
 
 .date {
 	font-size : 14px;
 	font-weight : bold;
+	margin : 1px 0px 0px 0px;
 }
 
 /** Weather ********************************************/
@@ -61,8 +63,8 @@
 
 .weatherstat{
 	font-size : 14px;
-	font-weight : bold;
-	margin : 0px 15px 0px 0px;
+	font-weight : normal;
+	margin : 1px 10px 0px 0px;
 }
 
 .weathericon {
@@ -75,7 +77,7 @@
 .weathertemp {
 	font-size : 14px;
 	font-weight : bold;
-	margin : 0px 15px 0px -10px;
+	margin : 1px 0px 0px -10px;
 }
 
 /** Music *************************************************/
@@ -95,6 +97,7 @@
 .song {
 	font-size : 14px;
 	font-weight : normal;
+	margin : 1px 0px 0px 0px;
 }
 
 .artist {
@@ -111,7 +114,7 @@
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
-	margin: 0px 10px 0px 10px;
+	margin: 1px 10px 0px 10px;
 }
 
 .trackbutton {
@@ -138,17 +141,17 @@
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
-	margin: 0px 0px 0px 0px;;
+	margin: 1px 0px 0px 0px;;
 }
 
 .infotext {
-	background-color: #FFFFFF;
+	background-color: #2C2C2C;
 	border: 0px solid #161616;
 	border-radius: 0px;
 	font-size : 14px;
 	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;;
-	font-weight : bold;
+	margin: 1px 0px 0px 0px;;
+	font-weight : normal;
 }
 
 .face {

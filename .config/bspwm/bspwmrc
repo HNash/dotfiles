@@ -43,9 +43,9 @@ if [[ ! `pidof eww` ]]; then
 fi
 
 ## Open widgets 
+killall eww
 run_eww() {
 	${EWW} --config "$CFG" open-many \
-           search \
            apps \
            musicbuttons \
            music \
