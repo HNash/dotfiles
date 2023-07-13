@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 11";
+	font:							"JetBrains Mono 10";
     show-icons:                     true;
 	icon-theme: 					"Tela";
     display-drun: 					"";
@@ -28,7 +28,7 @@ window {
 	border:							0px 0px 0px 0px;
 	border-color:					@ac;
     border-radius:                  0px;
-	width:							400px;
+	width:							320px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -36,10 +36,18 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						2px 0px 0px 4px;
+	padding: 						0px 0px 0px 0px;
 	background-color: 				@al;
+	text-color: 					@fga;
+}
+
+textbox-prompt-colon {
+	padding: 						0px 0px 0px 0px;
+	background-color: 				@bga;
 	text-color: 					@fg;
-	font:							"feather 12";
+	expand: false;
+	str: "";
+	font:							"JetBrains Mono 10";
 }
 
 entry {
@@ -54,22 +62,22 @@ entry {
 }
 
 inputbar {
-	children: 						[ prompt, entry ];
-    background-color:               @bga;
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               @bg;
     text-color:                     @fg;
     expand:                         false;
-	border:							0px;
-    border-radius:                  0px;
+	border:							2px;
+    border-radius:                  12px;
 	border-color:					@ac;
     margin:                         0px;
-    padding:                        8px;
+    padding:                        6px;
 }
 
 listview {
     background-color:               @al;
     padding:                        0px;
     columns:                        1;
-    lines:                          7;
+    lines:                          5;
     spacing:                        6px;
     cycle:                          true;
     dynamic:                        true;
@@ -91,7 +99,7 @@ element {
     text-color:                     @fga;
     orientation:                    horizontal;
     border-radius:                  0px;
-    padding:                        8px;
+    padding:                        3px 3px 3px -16px;
 }
 
 element-icon {
@@ -112,7 +120,7 @@ element-text {
 
 element selected {
     background-color:               @bga;
-    text-color:                     @fg;
+    text-color:                     @fga;
 	border:							0px 0px 0px 0px;
     border-radius:                  0px;
     border-color:                  	@ac;

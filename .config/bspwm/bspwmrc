@@ -47,6 +47,9 @@ run_eww() {
 	${EWW} --config "$CFG" open-many \
            search \
            apps \
+           musicbuttons \
+           music \
+           datetime \
 		   weather \
 		   system
 }
@@ -65,7 +68,7 @@ xsetroot -cursor_name left_ptr
 bspc config border_width	2
 bspc config active_border_color '#2C2C2C'
 bspc config normal_border_color '#2C2C2C'
-bspc config focused_border_color '#9C9C9C'
+bspc config focused_border_color '#5C5C5C'
 bspc config window_gap		10
 bspc config automatic_scheme    automatic
 

@@ -48,9 +48,9 @@ toggle_mute() {
 	status=`amixer get Master | tail -n1 | grep -wo 'on'`
 
 	if [[ "$status" == "on" ]]; then
-		pactl set-sink-mute 0 toggle
+		amixer set Master toggle
 	else
-		pactl set-sink-mute 0 toggle
+		amixer set Master toggle
 	fi
 }
 

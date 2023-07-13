@@ -20,7 +20,7 @@ ctrl + alt + Delete
 
 # Rofi app launcher
 alt + d
-  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/eww/arin/launcher.rasi &
+  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/eww/arin/rasis/launcher.rasi &
 
 # File browser
 alt + f
@@ -36,11 +36,11 @@ alt + b
 
 # Restart bspwm
 alt + shift + r
-  bspc wm -r
+  bspc wm -r & mpc update &
 
 # Open shutdown menu
 alt + shift + e
-  $HOME/.config/polybar/colorblocks/scripts/powermenu.sh &
+  $HOME/.config/eww/arin/powermenu.sh &
 
 # Kill window
 alt + shift + q
@@ -48,7 +48,7 @@ alt + shift + q
 
 # Lock
 alt + l
-  bash ~/lock.sh
+  lock.sh
 
 
 ################################
@@ -113,4 +113,19 @@ XF86AudioLowerVolume
   amixer set Master 5%-
 
 XF86AudioMute
-  pactl set-sink-mute 0 toggle
+  pactl set-sink-mute `pactl get-default-sink` toggle
+
+XF86AudioPlay
+  mpc toggle
+
+XF86AudioStop
+  mpc stop
+
+XF86AudioPrev
+  mpc prev
+
+XF86AudioNext
+  mpc next
+
+super + shift + {Left, Right}
+  mpc seekthrough {-,+}5

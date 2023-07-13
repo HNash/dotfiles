@@ -41,7 +41,7 @@
 
 /** Clock ********************************************/
 .clockbox {
-	margin : 0px 0px 0px 25px;
+	margin : 0px 0px 0px 15px;
 }
 
 .time {
@@ -56,62 +56,69 @@
 
 /** Weather ********************************************/
 .weatherbox {
-	margin : 0px 0px 0px -90px;
+	margin : 0px 15px 0px 0px;
+}
+
+.weatherstat{
+	font-size : 14px;
+	font-weight : bold;
+	margin : 0px 15px 0px 0px;
 }
 
 .weathericon {
 	font-family: Iosevka Nerd Font;
 	font-size : 20px;
 	font-weight : normal;
+    margin : 0px 0px 0px 0px;
 }
 
 .weathertemp {
 	font-size : 14px;
 	font-weight : bold;
-	margin : 0px 0px 0px -5px;
+	margin : 0px 15px 0px -10px;
 }
 
 /** Music *************************************************/
 .album_art {
     background-repeat: no-repeat;
-	background-size: 40px;
-	min-height: 40px;
-	min-width: 40px;
-	margin: 8px;
-	border-radius: 8px;
+	background-size: 0px;
+	min-height: 0px;
+	min-width: 0px;
+	margin: 0px;
+	border-radius: 0px;
 }
 
 .musicbox {
-	margin : 0px 0px 0px 5px;
+	margin : 0px 0px 0px 0px;
 }
 
 .song {
 	font-size : 14px;
-	font-weight : bold;
+	font-weight : normal;
 }
 
 .artist {
-	font-size : 12px;
-	font-weight : bold;
+	font-size : 14px;
+	font-weight : normal;
 }
 
 .musicbuttons {
-	margin : 0px 0px 0px -90px;
+	margin : 0px 10px 0px 10px;
 }
 
 .playbutton {
     background-repeat: no-repeat;
-	background-size: 24px;
-	min-height: 24px;
-	min-width: 24px;
-	margin: 0px;
+	background-size: 20px;
+	min-height: 20px;
+	min-width: 20px;
+	margin: 0px 10px 0px 10px;
 }
 
 .trackbutton {
     background-repeat: no-repeat;
-	background-size: 18px;
-	min-height: 18px;
-	min-width: 18px;
+	background-size: 16px;
+	min-height: 16px;
+	min-width: 16px;
 	margin: 3px 0px 0px 0px;
 }
 
