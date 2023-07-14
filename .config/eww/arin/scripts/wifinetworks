@@ -2,10 +2,11 @@
 
 CFG="$HOME/.config/eww/arin/wifimenu"
 EWW=`which eww`
-cache="/home/cloudberry/.config/eww/arin/scripts/wifimenu/networks"
-cacheselected="/home/cloudberry/.config/eww/arin/scripts/wifimenu/selected"
+cache="$HOME/.config/eww/arin/scripts/wifimenu/networks"
+cacheselected="$HOME/.config/eww/arin/scripts/wifimenu/selected"
 
-if  [[ $1 = "--getnets" ]]; then
+if  [[ $1 = "--update" ]]; then
+    echo "Active: $(iwgetid -r)"
     netsraw=$(echo `nmcli device wifi list`)
     count=$(($(echo $netsraw | sed 's/..:..:..:..:..:.. /\n/g' | head -6 | wc -l)-1))
     net1=$(echo $netsraw | sed 's/..:..:..:..:..:.. /\n/g' | sed '2q;d'| cut -d ' ' -f 1)
@@ -13,12 +14,11 @@ if  [[ $1 = "--getnets" ]]; then
     net3=$(echo $netsraw | sed 's/..:..:..:..:..:.. /\n/g' | sed '4q;d'| cut -d ' ' -f 1)
     net4=$(echo $netsraw | sed 's/..:..:..:..:..:.. /\n/g' | sed '5q;d'| cut -d ' ' -f 1)
     net5=$(echo $netsraw | sed 's/..:..:..:..:..:.. /\n/g' | sed '6q;d'| cut -d ' ' -f 1)
-    echo -e "$net1|$net2|$net3|$net4|$net5" > "/home/cloudberry/.config/eww/arin/scripts/wifimenu/networks"
+    echo -e "$net1|$net2|$net3|$net4|$net5" > "$HOME/.config/eww/arin/scripts/wifimenu/networks"
 fi
 
 if  [[ $1 = "--getselected" ]]; then
-    selectedssid=$(cat  "/home/cloudberry/.config/eww/arin/scripts/wifimenu/selected")
-    echo "Active: $selectedssid"
+    echo "Active: $(iwgetid -r)"
 fi
 
 if  [[ $1 = "--nets" ]]; then
@@ -26,7 +26,7 @@ if  [[ $1 = "--nets" ]]; then
 fi
 
 if  [[ $1 = "--sets" ]]; then
-    cat $cache | cut -d '|' -f $2 > "/home/cloudberry/.config/eww/arin/scripts/wifimenu/selected"
+    cat $cache | cut -d '|' -f $2 > "$HOME/.config/eww/arin/scripts/wifimenu/selected"
     ${EWW} --config "$CFG" close wifimenu
     `../wifimenu/toggle_passwordbox`
 fi
@@ -34,7 +34,7 @@ fi
 if  [[ $1 = "--connect" ]]; then
     ${EWW} --config "$CFG" close passwordbox
     prefix="nmcli dev wifi connect"
-    selected=$(cat "/home/cloudberry/.config/eww/arin/scripts/wifimenu/selected")
+    selected=$(cat "$HOME/.config/eww/arin/scripts/wifimenu/selected")
     suffix="password"
     cmd="$prefix $selected $suffix \"$2\""
     eval $cmd

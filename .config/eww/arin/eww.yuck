@@ -45,12 +45,6 @@
 
 ;; ** Widgets *************************************************************************
 
-;; search
-(defwidget search [] 
-		(box :class "dockbox"
-			(button :valign "center" :halign "center" :onclick "sidedar/toggle_sidebar"
-				(label :class "workspace" :halign "start" :text WMS))))
-
 ;; apps
 (defwidget apps [] 
 		(box :class "dockbox"
@@ -93,7 +87,7 @@
 
 ;; system
 (defwidget system [] 
-		(box :class "dockbox"
+		(eventbox :class "dockbox" :onscroll "scripts/volume {}" 
 			(box :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 				(button :onclick "scripts/widget_apps --pow"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
@@ -109,20 +103,6 @@
 							(label :class "infotext" :halign "start" :text NETSTAT))))))
 
 ;; ** Windows *************************************************************************
-
-;; search
-(defwindow search
-           :monitor 0
-           :geometry (geometry :x "10px"
-                               :y "5px"
-                               :width "40px"
-                               :height "32px"
-                               :anchor "top left")
-           :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-(search))
 
 ;; apps
 (defwindow apps

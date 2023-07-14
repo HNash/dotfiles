@@ -35,12 +35,12 @@ get_icon() {
 
 # Increase Volume
 inc_volume() {
-	amixer -Mq set Master,0 5%+ unmute
+	amixer -Mq set Master,0 1%+ unmute
 }
 
 # Decrease Volume
 dec_volume() {
-	amixer -Mq set Master,0 5%- unmute
+	amixer -Mq set Master,0 1%- unmute
 }
 
 # Toggle Mute
@@ -59,9 +59,9 @@ if [[ "$1" == "--get" ]]; then
 	get_volume
 elif [[ "$1" == "--icon" ]]; then
 	get_icon
-elif [[ "$1" == "--inc" ]]; then
+elif [[ "$1" == "up" ]]; then
 	inc_volume
-elif [[ "$1" == "--dec" ]]; then
+elif [[ "$1" == "down" ]]; then
 	dec_volume
 elif [[ "$1" == "--toggle" ]]; then
 	toggle_mute

@@ -6,7 +6,8 @@
 ;; ** Variables ***********************************************************************
 
 ;; Network vars
-(defpoll SELECTED :interval "10s" `../scripts/wifinetworks --getselected && ../scripts/wifinetworks --getnets`)
+(defpoll SELECTED :interval "10s" `../scripts/wifinetworks --update`)
+(defpoll NETS :interval "10s" `../scripts/wifinetworks --getnets`)
 (defpoll NETWORK1 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 1`)
 (defpoll NETWORK2 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 2`)
 (defpoll NETWORK3 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 3`)
