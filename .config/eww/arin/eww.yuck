@@ -103,7 +103,7 @@
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${VOLICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text VOLUME)))
-				(button :onclick "scripts/widget_apps --nm"
+				(button :onclick "wifimenu/toggle_wifimenu"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text NETSTAT))))))

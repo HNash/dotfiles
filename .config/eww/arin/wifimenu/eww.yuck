@@ -1,0 +1,67 @@
+;; **
+;; ** Widgets config for EWW
+;; ** Created by : @adi1090x
+;; **
+
+;; ** Variables ***********************************************************************
+
+;; Network vars
+(defpoll SELECTED :interval "10s" `../scripts/wifinetworks --getselected && ../scripts/wifinetworks --getnets`)
+(defpoll NETWORK1 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 1`)
+(defpoll NETWORK2 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 2`)
+(defpoll NETWORK3 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 3`)
+(defpoll NETWORK4 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 4`)
+(defpoll NETWORK5 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 5`)
+
+;; ** Widgets *************************************************************************
+
+;;wifimenu
+(defwidget wifimenu []
+    (box :class "dockbox"
+        (box :class "wifibox" :orientation "v" :spacing 0 :width 275 :valign "start" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (button :class "connected" :valign "center" :halign "center"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text SELECTED))
+
+            (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 1"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK1))
+            (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 2"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK2))
+            (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 3"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK3))
+            (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 4"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK4))
+            (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 5"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK5)))))
+
+;;passwordbox
+(defwidget passwordbox []
+    (box :class "dockbox"
+        (box :class "password" :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (label :class "infotext" :halign "start" :text "Password:")
+            (input :onaccept "../scripts/wifinetworks --connect {}" :password "true" :spacing 5))))
+
+;; ** Windows *************************************************************************
+
+;; wifimenu
+(defwindow wifimenu
+           :monitor 0
+           :geometry (geometry :x "1635px"
+                               :y "40px"
+                               :width "275px"
+                               :height "300px"
+                               :anchor "top left")
+           :stacking "fg"
+           :wm-ignore true
+(wifimenu))
+
+;; passwordbox
+(defwindow passwordbox
+           :monitor 0
+           :geometry (geometry :x "1635px"
+                               :y "40px"
+                               :width "271px"
+                               :height "32px"
+                               :anchor "top left")
+           :windowtype "dialog"
+           :stacking "fg"
+(passwordbox))
