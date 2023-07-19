@@ -18,40 +18,40 @@
 
 <h3>Dependencies</h3>
 ---Packages---<br>
-bspwm<br>
-sxhkd<br>
-rofi<br>
-nemo<br>
-yshui/picom<br>
-kitty (built from source)<br>
-mpd/mpc<br>
-nmcpcpp<br>
-jq<br><br>
+<li>bspwm</li>
+<li>sxhkd</li>
+<li>rofi</li>
+<li>nemo</li>
+<li>yshui/picom</li>
+<li>kitty (built from source)</li>
+<li>mpd/mpc</li>
+<li>nmcpcpp</li>
+<li>jq</li><br>
 (scratchpad)<br>
-    xdo<br><br>
+    <li>xdo</li><br>
 (lock)<br>
-    i3lock<br>
-    scrot<br>
-    imagemagick<br><br>
+    <li>i3lock</li>
+    <li>scrot</li>
+    <li>imagemagick</li><br>
 (eww)<br>
-    rustc<br>
-    cargo<br>
-    gtk3<br>
-    pango<br>
-    gdk-pixbuf2<br>
-    cairo<br>
-    glib2<br>
-    gcc-libs<br>
-    glibc<br>
-    eww<br><br>
+    <li>rustc</li>
+    <li>cargo</li>
+    <li>gtk3</li>
+    <li>pango</li>
+    <li>gdk-pixbuf2</li>
+    <li>cairo</li>
+    <li>glib2</li>
+    <li>gcc-libs</li>
+    <li>glibc</li>
+    <li>eww</li><br>
 
 ---Fonts---<br>
-feather<br>
-JetBrains<br>
-Iosevka<br>
+<li>feather</li>
+<li>JetBrains</li>
+<li>Iosevka</li>
 <br><br>
 ---Themes---<br>
-Orchis-Dark<br>
+<li>Orchis-Dark</li>
 <br><br>
 ---Icons---<br>
-Tela<br>
+<li>Tela</li>
