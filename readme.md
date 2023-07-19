@@ -18,7 +18,7 @@
 <li>The scratchpad script in .local/scripts uses kitty and requires xdotool. Another terminal can used.</li>
 </ul>
 
-<h3>Dependencies</h3>
+<h2>Dependencies</h2>
 
 <b>Packages</b>
 <ul>
