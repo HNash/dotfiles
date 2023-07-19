@@ -26,11 +26,11 @@
 <li>kitty (built from source)</li>
 <li>mpd/mpc</li>
 <li>nmcpcpp</li>
-<li>jq</li><br>
-<li>xdo (scratchpad)</li><br>
+<li>jq</li>
+<li>xdo (scratchpad)</li>
 <li>i3lock (lock)</li>
 <li>scrot (lock)</li>
-<li>imagemagick (lock)</li><br>
+<li>imagemagick (lock)</li>
 <li>rustc (eww)</li>
 <li>cargo (eww)</li>
 <li>gtk3 (eww)</li>
