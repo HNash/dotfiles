@@ -62,12 +62,14 @@
 <li>JetBrains</li>
 <li>Iosevka</li>
 </ul>
-<br><br>
+<br>
+
 <b>GTK Themes</b>
 <ul>
 <li>Orchis-Dark</li>
 </ul>
-<br><br>
+<br>
+
 <b>Icons</b>
 <ul>
 <li>Tela</li>
