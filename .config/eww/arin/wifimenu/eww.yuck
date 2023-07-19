@@ -19,20 +19,25 @@
 ;;wifimenu
 (defwidget wifimenu []
     (box :class "dockbox"
-        (box :class "wifibox" :orientation "v" :spacing 0 :width 275 :valign "start" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+        (box :class "wifibox" :orientation "v" :spacing 0 :width 290 :valign "start" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
             (button :class "connected" :valign "center" :halign "center"
     				(label :limit-width 28 :class "ssid" :halign "start" :text SELECTED))
 
             (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 1"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK1))
+    				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK1))
             (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 2"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK2))
+    				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK2))
             (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 3"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK3))
+    				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK3))
             (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 4"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK4))
+    				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK4))
             (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 5"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text NETWORK5)))))
+    				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK5))
+
+            (button :class "connected" :valign "center" :halign "center"
+    				(label :limit-width 28 :class "ssid" :halign "start" :text "Network Settings"))
+
+)))
 
 ;;passwordbox
 (defwidget passwordbox []
@@ -46,10 +51,10 @@
 ;; wifimenu
 (defwindow wifimenu
            :monitor 0
-           :geometry (geometry :x "1635px"
+           :geometry (geometry :x "1625px"
                                :y "40px"
-                               :width "275px"
-                               :height "300px"
+                               :width "290px"
+                               :height "180px"
                                :anchor "top left")
            :stacking "fg"
            :wm-ignore true
@@ -58,11 +63,12 @@
 ;; passwordbox
 (defwindow passwordbox
            :monitor 0
-           :geometry (geometry :x "1635px"
+           :geometry (geometry :x "1625px"
                                :y "40px"
-                               :width "271px"
+                               :width "286px"
                                :height "32px"
                                :anchor "top left")
            :windowtype "dialog"
            :stacking "fg"
+           :wm-ignore false
 (passwordbox))

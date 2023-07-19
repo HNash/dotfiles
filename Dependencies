@@ -1,0 +1,38 @@
+---Packages---
+bspwm
+sxhkd
+rofi
+nemo
+yshui/picom
+kitty (built from source)
+mpd/mpc
+nmcpcpp
+jq
+(scratchpad)
+    xdo
+(lock)
+    i3lock
+    scrot
+    imagemagick
+(eww)
+    rustc
+    cargo
+    gtk3
+    pango
+    gdk-pixbuf2
+    cairo
+    glib2
+    gcc-libs
+    glibc
+    eww
+
+---Fonts---
+feather
+JetBrains
+Iosevka
+
+---Themes---
+Orchis-Dark
+
+---Icons---
+Tela

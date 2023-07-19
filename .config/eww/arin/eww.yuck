@@ -24,9 +24,6 @@
 (defpoll COVER :interval "1s" `scripts/music_info --cover`)
 (defpoll STATUS :interval "1s" `scripts/music_info --status`)
 
-;; Mail vars
-(defpoll MAILS :interval "600m" `scripts/mails`)
-
 ;; Battery vars
 (defpoll BATICON :interval "1m" `scripts/battery --icon`)
 (defpoll BATPERC :interval "1m" `scripts/battery --perc`)
@@ -107,13 +104,13 @@
 ;; apps
 (defwindow apps
            :monitor 0
-           :geometry (geometry :x "10px"
+           :geometry (geometry :x "5px"
                                :y "5px"
                                :width "150px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (apps))
@@ -121,13 +118,13 @@
 ;; musicbuttons
 (defwindow musicbuttons
            :monitor 0
-           :geometry (geometry :x "165px"
+           :geometry (geometry :x "160px"
                                :y "5px"
                                :width "110px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (musicbuttons))
@@ -135,13 +132,13 @@
 ;; music
 (defwindow music
            :monitor 0
-           :geometry (geometry :x "280px"
+           :geometry (geometry :x "275px"
                                :y "5px"
                                :width "300px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (music))
@@ -149,13 +146,13 @@
 ;;datetime
 (defwindow datetime
            :monitor 0
-           :geometry (geometry :x "585px"
+           :geometry (geometry :x "580px"
                                :y "5px"
-                               :width "755px"
+                               :width "760px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (datetime))
@@ -165,11 +162,11 @@
            :monitor 0
            :geometry (geometry :x "1345px"
                                :y "5px"
-                               :width "285px"
+                               :width "275px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (weather))
@@ -177,13 +174,13 @@
 ;; system
 (defwindow system
            :monitor 0
-           :geometry (geometry :x "1635px"
+           :geometry (geometry :x "1625px"
                                :y "5px"
-                               :width "275px"
+                               :width "290px"
                                :height "32px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "32px" :side "top")
+           :reserve (struts :distance "37px" :side "top")
            :windowtype "dock"
            :wm-ignore false
 (system))

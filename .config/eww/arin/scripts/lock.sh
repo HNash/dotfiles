@@ -4,15 +4,7 @@
 # i3lock
 # scrot (optional but default)
 
-IMAGE=/tmp/i3lock.png
-CHECK=$(xrandr -q | grep " connected" | grep HDMI)
-LEN=${#CHECK}
-if [ $LEN -gt 0 ]
-then
-	LOCK=lock2.png
-else
-	LOCK=lock.png
-fi
+IMAGE=/tmp/screen.png
 SCREENSHOT="scrot $IMAGE" # 0.46s
 
 # Alternate screenshot method with imagemagick. NOTE: it is much slower
@@ -32,5 +24,5 @@ BLURTYPE="0x10" # 2.90s
 $SCREENSHOT
 convert $IMAGE -blur 0x10 $IMAGE
 #convert $IMAGE $LOCK -gravity center -composite $IMAGE
-i3lock -u -i $IMAGE
+i3lock -i $IMAGE
 rm $IMAGE

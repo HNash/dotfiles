@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [[ "$1" == "--tr" ]]; then
-	gnome-terminal &
+	kitty &
 
 elif [[ "$1" == "--fm" ]]; then
-	nautilus ~ &
+	nemo ~ &
 
 fi

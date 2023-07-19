@@ -9,8 +9,8 @@ cache_weather_hex=${cache_dir}/weather-hex
 cache_weather_icon=${cache_dir}/weather-icon
 
 ## Weather data
-KEY=""
-ID=""
+KEY="KEY"
+ID="ID"
 UNIT="metric"	# Available options : 'metric' or 'imperial'
 
 ## Make cache dir
@@ -20,7 +20,7 @@ fi
 
 ## Get data
 get_weather_data() {
-	weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="ff745f79ab456a0faae8506e6ccb0e80"&id="360630"&units="metric""`
+	weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="KEY"&id="ID"&units="metric""`
 ##	echo ${weather}
 
 	if [ ! -z "$weather" ]; then
