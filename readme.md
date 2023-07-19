@@ -17,7 +17,7 @@
 <li>The scratchpad script in .local/scripts uses kitty and requires xdotool. Another terminal can used.</li>
 
 <h3>Dependencies</h3>
----Packages---<br>
+<b>---Packages---</b><br>
 <li>bspwm</li>
 <li>sxhkd</li>
 <li>rofi</li>
@@ -45,13 +45,13 @@
     <li>glibc</li>
     <li>eww</li><br>
 
----Fonts---<br>
+<b>---Fonts---</b><br>
 <li>feather</li>
 <li>JetBrains</li>
 <li>Iosevka</li>
 <br><br>
----Themes---<br>
+<b>---Themes---</b><br>
 <li>Orchis-Dark</li>
 <br><br>
----Icons---<br>
+<b>---Icons---</b><br>
 <li>Tela</li>
