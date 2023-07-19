@@ -2,14 +2,13 @@
 <img src="screen.png" alt="Screenshot 1" width="800" height="1310">
 <h2>Overview</h2>
 <b>WM:</b> bspwm<br>
-<b>Bar:</b> Eww (edited version of <a href=https://github.com/adi1090x/widgets>Arin</a> by adi1090x)<br>
+<b>Bar:</b> Eww (heavily based on <a href=https://github.com/adi1090x/widgets>Arin</a> by adi1090x)<br>
 <b>GTK Theme:</b> <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
 <b>Icons:</b> Tela<br>
 <b>Compositor:</b> picom<br>
 <b>Launcher:</b> rofi<br>
 <b>Font:</b> JetBrains Mono<br>
-<b>File Browser:</b> Nautilus<br>
-<b>Color Scheme:</b> Chalky (Gogh)<br>
+<b>File Browser:</b> Nemo<br>
 
 <h2>Before Installing</h2>
 <ul>
