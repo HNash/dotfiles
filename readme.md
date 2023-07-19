@@ -19,7 +19,7 @@
 </ul>
 
 <h3>Dependencies</h3>
-<b>Packages</b><br>
+<b>Packages</b>
 <ul>
 <li>bspwm</li>
 <li>sxhkd</li>
@@ -56,19 +56,19 @@
 </ul>
 <br>
 
-<b>Fonts</b><br>
+<b>Fonts</b>
 <ul>
 <li>feather</li>
 <li>JetBrains</li>
 <li>Iosevka</li>
 </ul>
 <br><br>
-<b>GTK Themes</b><br>
+<b>GTK Themes</b>
 <ul>
 <li>Orchis-Dark</li>
 </ul>
 <br><br>
-<b>Icons</b><br>
+<b>Icons</b>
 <ul>
 <li>Tela</li>
 </ul>
