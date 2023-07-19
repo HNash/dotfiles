@@ -32,25 +32,25 @@
 <li>jq</li>
 <li>Scratchpad</li>
 <ul>
-<li>xdo (for scratchpad)</li>
+<li>xdo</li>
 </ul>
 <li>Lock screen</li>
 <ul>
-<li>i3lock (for lock)</li>
-<li>scrot (for lock)</li>
-<li>imagemagick (for lock)</li>
+<li>i3lock</li>
+<li>scrot</li>
+<li>imagemagick</li>
 </ul>
 <li>Eww Widget Bar</li>
 <ul>
-<li>rustc (for eww)</li>
-<li>cargo (for eww)</li>
-<li>gtk3 (for eww)</li>
-<li>pango (for eww)</li>
-<li>gdk-pixbuf2 (for eww)</li>
-<li>cairo (for eww)</li>
-<li>glib2 (for eww)</li>
-<li>gcc-libs (for eww)</li>
-<li>glibc (for eww)</li>
+<li>rustc</li>
+<li>cargo</li>
+<li>gtk3</li>
+<li>pango</li>
+<li>gdk-pixbuf2</li>
+<li>cairo</li>
+<li>glib2</li>
+<li>gcc-libs</li>
+<li>glibc</li>
 <li>eww</li>
 </ul>
 </ul>
