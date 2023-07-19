@@ -27,23 +27,20 @@
 <li>mpd/mpc</li>
 <li>nmcpcpp</li>
 <li>jq</li><br>
-(scratchpad)<br>
-    <li>xdo</li><br>
-(lock)<br>
-    <li>i3lock</li>
-    <li>scrot</li>
-    <li>imagemagick</li><br>
-(eww)<br>
-    <li>rustc</li>
-    <li>cargo</li>
-    <li>gtk3</li>
-    <li>pango</li>
-    <li>gdk-pixbuf2</li>
-    <li>cairo</li>
-    <li>glib2</li>
-    <li>gcc-libs</li>
-    <li>glibc</li>
-    <li>eww</li><br>
+<li>xdo (scratchpad)</li><br>
+<li>i3lock (lock)</li>
+<li>scrot (lock)</li>
+<li>imagemagick (lock)</li><br>
+<li>rustc (eww)</li>
+<li>cargo (eww)</li>
+<li>gtk3 (eww)</li>
+<li>pango (eww)</li>
+<li>gdk-pixbuf2 (eww)</li>
+<li>cairo (eww)</li>
+<li>glib2 (eww)</li>
+<li>gcc-libs (eww)</li>
+<li>glibc (eww)</li>
+<li>eww</li><br>
 
 <b>Fonts</b><br>
 <li>feather</li>
