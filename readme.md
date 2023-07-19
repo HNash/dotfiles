@@ -27,19 +27,19 @@
 <li>mpd/mpc</li>
 <li>nmcpcpp</li>
 <li>jq</li>
-<li>xdo (scratchpad)</li>
-<li>i3lock (lock)</li>
-<li>scrot (lock)</li>
-<li>imagemagick (lock)</li>
-<li>rustc (eww)</li>
-<li>cargo (eww)</li>
-<li>gtk3 (eww)</li>
-<li>pango (eww)</li>
-<li>gdk-pixbuf2 (eww)</li>
-<li>cairo (eww)</li>
-<li>glib2 (eww)</li>
-<li>gcc-libs (eww)</li>
-<li>glibc (eww)</li>
+<li>xdo (for scratchpad)</li>
+<li>i3lock (for lock)</li>
+<li>scrot (for lock)</li>
+<li>imagemagick (for lock)</li>
+<li>rustc (for eww)</li>
+<li>cargo (for eww)</li>
+<li>gtk3 (for eww)</li>
+<li>pango (for eww)</li>
+<li>gdk-pixbuf2 (for eww)</li>
+<li>cairo (for eww)</li>
+<li>glib2 (for eww)</li>
+<li>gcc-libs (for eww)</li>
+<li>glibc (efor ww)</li>
 <li>eww</li><br>
 
 <b>Fonts</b><br>
@@ -47,7 +47,7 @@
 <li>JetBrains</li>
 <li>Iosevka</li>
 <br><br>
-<b>Themes</b><br>
+<b>GTK Themes</b><br>
 <li>Orchis-Dark</li>
 <br><br>
 <b>Icons</b><br>
