@@ -39,7 +39,7 @@
 <li>cairo (for eww)</li>
 <li>glib2 (for eww)</li>
 <li>gcc-libs (for eww)</li>
-<li>glibc (efor ww)</li>
+<li>glibc (for eww)</li>
 <li>eww</li><br>
 
 <b>Fonts</b><br>
