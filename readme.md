@@ -12,12 +12,15 @@
 <b>Color Scheme:</b> Chalky (Gogh)<br>
 
 <h2>Before Installing</h2>
+<ul>
 <li>Put lock.sh in /usr/bin/</li>
 <li>bspwm turns on tap to click using my specific touchpad ID. See "Essential Configuration" file for more information.</li>
 <li>The scratchpad script in .local/scripts uses kitty and requires xdotool. Another terminal can used.</li>
+</ul>
 
 <h3>Dependencies</h3>
 <b>Packages</b><br>
+<ul>
 <li>bspwm</li>
 <li>sxhkd</li>
 <li>rofi</li>
@@ -27,10 +30,18 @@
 <li>mpd/mpc</li>
 <li>nmcpcpp</li>
 <li>jq</li>
+<li>Scratchpad</li>
+<ul>
 <li>xdo (for scratchpad)</li>
+</ul>
+<li>Lock screen</li>
+<ul>
 <li>i3lock (for lock)</li>
 <li>scrot (for lock)</li>
 <li>imagemagick (for lock)</li>
+</ul>
+<li>Eww Widget Bar</li>
+<ul>
 <li>rustc (for eww)</li>
 <li>cargo (for eww)</li>
 <li>gtk3 (for eww)</li>
@@ -40,15 +51,24 @@
 <li>glib2 (for eww)</li>
 <li>gcc-libs (for eww)</li>
 <li>glibc (for eww)</li>
-<li>eww</li><br>
+<li>eww</li>
+</ul>
+</ul>
+<br>
 
 <b>Fonts</b><br>
+<ul>
 <li>feather</li>
 <li>JetBrains</li>
 <li>Iosevka</li>
+</ul>
 <br><br>
 <b>GTK Themes</b><br>
+<ul>
 <li>Orchis-Dark</li>
+</ul>
 <br><br>
 <b>Icons</b><br>
+<ul>
 <li>Tela</li>
+</ul>
