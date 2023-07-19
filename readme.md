@@ -19,6 +19,7 @@
 </ul>
 
 <h3>Dependencies</h3>
+
 <b>Packages</b>
 <ul>
 <li>bspwm</li>
