@@ -1,6 +1,7 @@
 <h2>Overview</h2>
+<b>These dotfiles are configured for xorg, not Wayland</b><br>
 <b>WM:</b> bspwm<br>
-<b>Bar:</b> Eww (heavily based on <a href=https://github.com/adi1090x/widgets>Arin</a> by adi1090x)<br>
+<b>Bar:</b> Eww<br>
 <b>GTK Theme:</b> <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
 <b>Icons:</b> Tela<br>
 <b>Compositor:</b> picom<br>
@@ -25,8 +26,12 @@
 <li>nemo</li>
 <li>yshui/picom</li>
 <li>kitty (built from source)</li>
-<li>pulseaudio</li>
+<li>pulseaudio + pavucontrol</li>
 <li>mpd/mpc</li>
+<li>nm-connection-editor</li>
+<li>nmcli</li>
+<li>bluetoothctl</li>
+<li>curl</li>
 <li>nmcpcpp</li>
 <li>jq</li>
 <li>Scratchpad</li>
