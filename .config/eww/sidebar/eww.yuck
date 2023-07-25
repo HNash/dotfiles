@@ -1,0 +1,87 @@
+;; **
+;; ** My Eww Bar
+;; ** Created by : @HNash
+;; **
+
+;; ** Variables ***********************************************************************
+
+;; Weather vars
+(defpoll STAT :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --stat`)
+(defpoll ICON :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --icon`)
+(defpoll TEMP :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --temp`)
+(defpoll HEX :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --hex`)
+(defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
+(defpoll DATE :interval "5s" `date +\"%a, %B %d\"`)
+
+;; Music vars
+(defpoll SONG :interval "1s" `../scripts/music_info --song`)
+(defpoll ARTIST :interval "1s" `../scripts/music_info --artist`)
+(defpoll COVER :interval "1s" `../scripts/music_info --cover`)
+(defpoll STATUS :interval "1s" `../scripts/music_info --status`)
+(defpoll MTIMEC :interval "1s" `../scripts/music_info --ctime`)
+(defpoll MTIMET :interval "1s" `../scripts/music_info --ttime`)
+
+;; Toggle vars
+(defpoll BLUETOOTH :interval "1s" `../scripts/toggles --btinfo`)
+(defpoll WIFI :interval "1s" `../scripts/toggles --wfinfo`)
+(defpoll AIRPLANE :interval "1s" `../scripts/toggles --apinfo`)
+
+;; User
+(defvar IMAGE "images/profile.jpg")
+(defpoll USER :interval "10m" `whoami`)
+
+;; ** Widgets *************************************************************************
+
+;; sidebar
+(defwidget sidebar []
+    (box :class "dockbox" :orientation "v" :spacing 15
+
+        (box :class "doublesection" :orientation "h" :spacing 15
+            (box :class "section" :orientation "h"
+                (label :class "date" :halign "start" :wrap "false" :limit-width 24 :text DATE))
+            (box :class "togglesection" :orientation "h"
+                (button :class "togglebutton" :halign "start" :style "background-image: url('${WIFI}');" :onclick "../scripts/toggles --wftog")
+                (button :class "togglebutton" :halign "center" :style "background-image: url('${BLUETOOTH}');" :onclick "../scripts/toggles --bttog")
+                (button :class "togglebutton" :halign "end" :style "background-image: url('${AIRPLANE}');" :onclick "../scripts/toggles --aptog")))
+    
+       (box :class "section" :orientation "h" :spacing 15
+            (box :class "weatherbox" :orientation "h" :halign "start"
+                (label :class "weatherstat" :text STAT))
+            (box :class "weatherbox" :orientation "h" :halign "end"
+				(label :class "weathericon" :style "color: ${HEX};" :text ICON)
+				(label :class "weathertemp" :text TEMP)))
+
+        (box :class "section" :orientation "h" :spacing 75
+            (box :class "musicbuttons" :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+       				(button :style "background-image: url('../images/icons/sidebar/prev.svg');" :class "trackbutton" :onclick "../scripts/music_info --prev")
+        			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "../scripts/music_info --toggle")
+        			(button :style "background-image: url('../images/icons/sidebar/next.svg');" :class "trackbutton" :onclick "../scripts/music_info --next"))
+    
+            (box :class "musicbox" :orientation "v" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+    				(label :class "song" :halign "start" :wrap "false" :limit-width 16 :text SONG)
+                    (label :class "artist" :halign "start" :wrap "false" :limit-width 22 :text ARTIST)))
+        
+        (box :class "section" :orientation "h"
+            (button :style "background-image: url('../images/icons/sidebar/sys-lock.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --lock")
+			(button :style "background-image: url('../images/icons/sidebar/sys-sleep.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --suspend")
+		    (button :style "background-image: url('../images/icons/sidebar/sys-exit.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --logout")
+			(button :style "background-image: url('../images/icons/sidebar/sys-reboot.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --reboot")
+			(button :style "background-image: url('../images/icons/sidebar/poweroff.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --shutdown"))
+
+))
+
+;; ** Windows *************************************************************************
+
+;; sidebar
+(defwindow sidebar
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "648px"
+                               :width "420px"
+                               :height "400px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "31px" :side "bottom")
+           :windowtype "dock"
+           :wm-ignore false
+(sidebar))

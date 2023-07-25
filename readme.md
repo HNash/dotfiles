@@ -25,6 +25,7 @@
 <li>nemo</li>
 <li>yshui/picom</li>
 <li>kitty (built from source)</li>
+<li>pulseaudio</li>
 <li>mpd/mpc</li>
 <li>nmcpcpp</li>
 <li>jq</li>
@@ -50,6 +51,17 @@
 <li>gcc-libs</li>
 <li>glibc</li>
 <li>eww</li>
+</ul>
+<li>Vimtex Setup</li>
+<ul>
+<li>vim-plug (<a href="https://github.com/junegunn/vim-plug"> instructions </a>)</li>
+<li>vimtex (just copy ~/.vimrc)</li>
+<li>zathura</li>
+<li>zathura-pdf-mupdf</li>
+<li>latexmk (<a href ="https://ctan.org/pkg/latexmk?lang=en"> instructions </a>)</li>
+<li>texlive</li>
+<li>texlive-core</li>
+<li>texlive-latex</li>
 </ul>
 </ul>
 <br>

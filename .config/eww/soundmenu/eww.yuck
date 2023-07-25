@@ -1,0 +1,35 @@
+;; **
+;; ** Wifimenu Eww
+;; ** Created by : @HNash
+;; **
+
+;; ** Variables ***********************************************************************
+
+;; Sound vars
+(defpoll VOLUME :interval "200ms" `../scripts/volume --getclean`)
+
+;; ** Widgets *************************************************************************
+
+;;soundmenu
+(defwidget soundmenu []
+    (box :class "dockbox"
+        (box :class "sliderbox" :valign "fill" :halign "start" :space-evenly false
+            (scale :active true :min 0 :max 100 :value VOLUME :orientation "h" :halign "end" :onchange "amixer sset 'Master' {}%")
+            (button :onclick "pavucontrol &"            
+                (label :halign "end" :class "infotext" :text "Settings"))
+
+)))
+
+;; ** Windows *************************************************************************
+
+;; soundmenu
+(defwindow soundmenu
+           :monitor 0
+           :geometry (geometry :x "1620px"
+                               :y "1016px"
+                               :width "300px"
+                               :height "32px"
+                               :anchor "top left")
+           :stacking "fg"
+           :wm-ignore true
+(soundmenu))

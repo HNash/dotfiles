@@ -1,0 +1,55 @@
+#!/bin/bash
+
+BLUEON=`bluetoothctl show | grep 'Powered' | cut -d ' ' -f 2`
+WIFION=`nmcli dev | grep wlp | sed '1q;d' | grep unavailable`
+
+bluetooth_toggle() {
+    if [[ "$BLUEON" == "yes" ]]; then
+        `bluetoothctl power off`
+    else
+        `bluetoothctl power on`
+    fi
+}
+
+wifi_toggle() {
+    if [[ -z "$WIFION" ]]; then
+        `nmcli radio wifi off`
+    else
+        `nmcli radio wifi on`
+    fi
+}
+
+airplane_toggle() {
+    if [[ -z "$WIFION" || "$BLUEON" == "yes" ]]; then
+        `nmcli radio wifi off & bluetoothctl power off`
+    else
+        `nmcli radio wifi on & bluetoothctl power on`
+    fi
+}
+
+
+if [[ $1 == "--btinfo" ]]; then
+    if [[ "$BLUEON" == "yes" ]]; then
+        echo "../images/icons/sidebar/bton.png"
+    else
+        echo "../images/icons/sidebar/btoff.png"
+    fi
+elif [[ $1 == "--wfinfo" ]]; then
+    if [[ -z "$WIFION" ]]; then
+        echo "../images/icons/sidebar/wfon.png"
+    else
+        echo "../images/icons/sidebar/wfoff.png"
+    fi
+elif [[ $1 == "--apinfo" ]]; then
+    if [[ -z "$WIFION" || "$BLUEON" == "yes" ]]; then
+        echo "../images/icons/sidebar/apoff.png"
+    else
+        echo "../images/icons/sidebar/apon.png"
+    fi
+elif [[ $1 == "--bttog" ]]; then
+    bluetooth_toggle
+elif [[ $1 == "--wftog" ]]; then
+    wifi_toggle
+elif [[ $1 == "--aptog" ]]; then
+    airplane_toggle
+fi

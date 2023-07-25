@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ "$1" == "--tr" ]]; then
+	kitty &
+
+elif [[ "$1" == "--fm" ]]; then
+	nemo ~ &
+
+elif [[ "$1" == "--wb" ]]; then
+	brave &
+
+fi

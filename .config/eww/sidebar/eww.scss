@@ -1,0 +1,170 @@
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: feather;
+	font-family: "JetBrains Mono";
+	color: #FFFFFF;
+}
+
+/** Sidebar ***********************************/
+.dockbox {
+	background-color: #2c2c2c; 
+	border: 1px solid #5C5C5C;
+    border-radius: 12px;
+	padding: 15px 15px 15px 15px;
+}
+
+.section {
+	background-color: #313131; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+	padding: 0px 15px 0px 15px;
+}
+
+.doublesection{
+	background-color: #2c2c2c; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+}
+
+.togglesection {
+	background-color: #2C2C2C; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+	padding: 0px 15px 0px 15px;
+}
+
+/** Weather ********************************************/
+
+.clockbox {
+	margin : 0px 15px 0px 15px;
+}
+
+.time {
+	font-size : 16px;
+	font-weight : normal;
+	margin : 1px 0px -15px 0px;
+}
+
+.date {
+	font-size : 16px;
+	font-weight : bold;
+	margin : 0px 0px 0px 15px;
+}
+
+.weatherbox {
+	margin : 0px 0px 0px 0px;
+}
+
+.weatherstat{
+	font-size : 16px;
+	font-weight : normal;
+	margin : 1px 10px 0px 15px;
+}
+
+.weathericon {
+	font-family: Iosevka Nerd Font;
+	font-size : 24px;
+	font-weight : normal;
+    margin : 3px 0px 0px 0px;
+}
+
+.weathertemp {
+	font-size : 16px;
+	font-weight : bold;
+	margin : 1px 15px 0px -5px;
+}
+
+/** Music *************************************************/
+.album_art {
+    background-repeat: no-repeat;
+	background-size: 0px;
+	min-height: 0px;
+	min-width: 0px;
+	margin: 0px;
+	border-radius: 0px;
+}
+
+.musicbox {
+	margin : 0px 0px 0px -50px;
+}
+
+.song {
+	font-size : 16px;
+	font-weight : bold;
+	margin : 1px 0px 0px 0px;
+}
+
+.musictime {
+	font-size : 14px;
+	font-weight : bold;
+	margin : 1px 0px 0px 0px;
+}
+
+.musictimet {
+	font-size : 14px;
+	font-weight : bold;
+	margin : 1px 10px 0px 0px;
+}
+
+.artist {
+	font-size : 14px;
+	font-weight : normal;
+	margin : 1px 0px 0px 0px;
+}
+
+.musicbuttons {
+	margin : 0px 10px 0px 10px;
+}
+
+.playbutton {
+    background-repeat: no-repeat;
+	background-size: 42px;
+	min-height: 42px;
+	min-width: 42px;
+	margin: -2px 10px 0px 10px;
+}
+
+.trackbutton {
+    background-repeat: no-repeat;
+	background-size: 32px;
+	min-height: 32px;
+	min-width: 32px;
+	margin: 3px 0px 0px 0px;
+}
+
+/** Toggles *************************************************/
+.togglebutton {
+    background-repeat: no-repeat;
+	background-size: 42px;
+	min-height: 42px;
+	min-width: 42px;
+	margin: 18px 0px 0px 0px;
+}
+
+/** User *************************************************/
+.profile{
+    background-repeat: no-repeat;
+	border: 1px solid #5C5C5C;
+    border-radius: 30px;
+	background-size: 42px;
+	min-height: 42px;
+	min-width: 42px;
+	margin: 18px 0px 20px 15px;
+}
+
+.user {
+	font-size : 16px;
+	font-weight : normal;
+	margin : 0px 15px 0px -25px;
+}
+
+/** PowerButtons *************************************************/
+.powericons{
+    background-repeat: no-repeat;
+	background-size: 42px;
+	min-height: 42px;
+	min-width: 42px;
+	margin: 0px 0px 0px 0px;
+}
+/** EOF *************************************************/

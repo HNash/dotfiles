@@ -6,6 +6,10 @@
 ###     Launch Shortcuts     ###
 ################################
 
+# Open sidebar
+super + Tab
+    ~/.config/eww/sidebar/toggle_sidebar
+
 # Launch terminal
 alt + Return 
   kitty
@@ -16,11 +20,11 @@ alt + shift + Return
 
 # GUI System monitor
 ctrl + alt + Delete
-  gnome-system-monitor &
+  htop &
 
 # Rofi app launcher
 alt + d
-  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/eww/arin/rasis/launcher.rasi &
+  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/eww/rasis/launcher.rasi &
 
 # File browser
 alt + f
@@ -40,7 +44,7 @@ alt + shift + r
 
 # Open shutdown menu
 alt + shift + e
-  $HOME/.config/eww/arin/powermenu.sh &
+  $HOME/.config/eww/powermenu.sh &
 
 # Kill window
 alt + shift + q
@@ -103,7 +107,7 @@ super + {Left,Down,Up,Right}
   bspc node -v {-20 0,0 20,0 -20,20 0}
 
 ################################
-###     Volume Controls      ###
+###  Volume/Media Controls   ###
 ################################
 
 XF86AudioRaiseVolume
@@ -127,5 +131,8 @@ XF86AudioPrev
 XF86AudioNext
   mpc next
 
-super + shift + {Left, Right}
-  mpc seekthrough {-,+}5
+XF86MonBrightnessDown
+  xrandr --output eDP-1 --brightness 0.5
+
+XF86MonBrightnessUp
+  xrandr --output eDP-1 --brightness 1

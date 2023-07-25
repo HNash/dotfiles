@@ -2,7 +2,8 @@
 
 xset -dpms # Disables Energy Star features
 xset s off # Disables screen saver
-
+xinput set-prop 14 338 1 #enable natural scrolling on touchpad
+xinput set-prop 14 365 1 #enable tap to click on touchpad
 
 pkill sxhkd
 # Starting SXHKD Keyboard Daemon
@@ -13,6 +14,12 @@ sleep 1
 picom &
 
 nitrogen --restore
+
+killall mpd 
+sleep 1
+mpd &
+
+mpc update
 
 #Set up 5 workspaces on active monitor
 SCREEN=$(xrandr -q | grep " connected" | grep HDMI | cut -d " " -f1)
@@ -34,7 +41,7 @@ fi
 
 #############RUNNING EWW#############
 EWW=`which eww`
-CFG="$HOME/.config/eww/arin"
+CFG="$HOME/.config/eww"
 
 ## Run eww daemon if not running already
 if [[ ! `pidof eww` ]]; then
@@ -45,13 +52,7 @@ fi
 ## Open widgets 
 killall eww
 run_eww() {
-	${EWW} --config "$CFG" open-many \
-           apps \
-           musicbuttons \
-           music \
-           datetime \
-		   weather \
-		   system
+	eww --config "$CFG" open bar
 }
 
 ## Launch or close widgets accordingly
@@ -65,10 +66,10 @@ run_eww
 xsetroot -cursor_name left_ptr
 
 #Gaps and border thickness
-bspc config border_width	2
-bspc config active_border_color '#2C2C2C'
-bspc config normal_border_color '#2C2C2C'
-bspc config focused_border_color '#5C5C5C'
+bspc config border_width	1
+bspc config active_border_color '#5C5C5C'
+bspc config normal_border_color '#5C5C5CC'
+bspc config focused_border_color '#9C9C9C'
 bspc config window_gap		5
 bspc config automatic_scheme    automatic
 
@@ -80,12 +81,9 @@ bspc config pointer_modifier	mod1
 ###        BSPC Rules        ###
 ################################
 
-bspc rule -a scpad sticky=on state=floating rectangle=1915x400+0+37
+bspc rule -a scpad sticky=on state=floating rectangle=800x400+560+0
 
 bspc rule -a Zathura state=tiled
+#bspc rule -a kitty state=floating rectangle=600x400
 bspc rule -a Gnome-calculator state=floating
 bspc rule -a Gnome-system-monitor state=floating
-bspc rule -a cinnamon-settings state=floating
-bspc rule -a "cinnamon-settings calendar" state=floating
-bspc rule -a "cinnamon-settings sound" state=floating
-bspc rule -a "cinnamon-settings network" state=floating
