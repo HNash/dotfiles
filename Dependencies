@@ -5,34 +5,41 @@ rofi
 nemo
 yshui/picom
 kitty (built from source)
+pulseaudio + pavucontrol
 mpd/mpc
+nm-connection-editor
+nmcli
+bluetoothctl
+curl
 nmcpcpp
 jq
-(scratchpad)
-    xdo
-(lock)
-    i3lock
-    scrot
-    imagemagick
-(eww)
-    rustc
-    cargo
-    gtk3
-    pango
-    gdk-pixbuf2
-    cairo
-    glib2
-    gcc-libs
-    glibc
-    eww
 
----Fonts---
-feather
-JetBrains
-Iosevka
+---Scratchpad---
+xdo
 
----Themes---
-Orchis-Dark
+---Lock screen---
+i3lock
+scrot
+imagemagick
 
----Icons---
-Tela
+---Eww Widget Bar---
+rustc
+cargo
+gtk3
+pango
+gdk-pixbuf2
+cairo
+glib2
+gcc-libs
+glibc
+eww
+
+---Vimtex Setup---
+vim-plug
+vimtex (just copy ~/.vimrc)
+zathura
+zathura-pdf-mupdf
+latexmk
+texlive
+texlive-core
+texlive-latex
