@@ -1,5 +1,5 @@
 <h2>Preview</h2>
-<img src="screen1.png" alt="Screenshot" width="640" height="360"><br>
+<a href = "https://github.com/HNash/dotfiles/blob/main/screen.png">Click here to preview</a><br>
 
 <h2>Overview</h2>
 <b>These dotfiles are configured for xorg, not Wayland</b><br>
