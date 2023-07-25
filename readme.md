@@ -1,5 +1,5 @@
 <h2>Preview</h2>
-<img src="screen1.png" alt="Girl in a jacket" width="1280" height="720"><br>
+<img src="screen1.png" alt="Screenshot" width="640" height="360"><br>
 
 <h2>Overview</h2>
 <b>These dotfiles are configured for xorg, not Wayland</b><br>
