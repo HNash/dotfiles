@@ -1,3 +1,6 @@
+<h2>Preview</h2>
+<img src="screen.png" alt="Girl in a jacket" width="530" height="900"><br>
+
 <h2>Overview</h2>
 <b>These dotfiles are configured for xorg, not Wayland</b><br>
 <b>WM:</b> bspwm<br>
