@@ -38,7 +38,7 @@
 
         (box :class "doublesection" :orientation "h" :spacing 15
             (box :class "section" :orientation "h"
-                (label :class "date" :halign "start" :wrap "false" :limit-width 24 :text DATE))
+                (label :class "date" :halign "center" :wrap "false" :limit-width 24 :text DATE))
             (box :class "togglesection" :orientation "h"
                 (button :class "togglebutton" :halign "start" :style "background-image: url('${WIFI}');" :onclick "../scripts/toggles --wftog")
                 (button :class "togglebutton" :halign "center" :style "background-image: url('${BLUETOOTH}');" :onclick "../scripts/toggles --bttog")
@@ -46,7 +46,7 @@
     
        (box :class "section" :orientation "h" :spacing 15
             (box :class "weatherbox" :orientation "h" :halign "start"
-                (label :class "weatherstat" :text STAT))
+                (label :wrap "true" :class "weatherstat" :text STAT))
             (box :class "weatherbox" :orientation "h" :halign "end"
 				(label :class "weathericon" :style "color: ${HEX};" :text ICON)
 				(label :class "weathertemp" :text TEMP)))
@@ -61,7 +61,7 @@
     				(label :class "song" :halign "start" :wrap "false" :limit-width 16 :text SONG)
                     (label :class "artist" :halign "start" :wrap "false" :limit-width 22 :text ARTIST)))
         
-        (box :class "section" :orientation "h"
+        (box :class "togglesection" :orientation "h"
             (button :style "background-image: url('../images/icons/sidebar/sys-lock.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --lock")
 			(button :style "background-image: url('../images/icons/sidebar/sys-sleep.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --suspend")
 		    (button :style "background-image: url('../images/icons/sidebar/sys-exit.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --logout")

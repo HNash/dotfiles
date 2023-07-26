@@ -20,8 +20,13 @@
 (defwidget wifimenu []
     (box :class "dockbox"
         (box :class "wifibox" :orientation "v" :spacing 0 :width 300 :valign "start" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-            (button :class "active" :valign "center" :halign "center"
-    				(label :limit-width 28 :class "ssid" :halign "start" :text SELECTED))
+            
+            (box :class "topbar" :space-evenly "true"
+                (box :halign "center"
+                    (button :class "active"
+                        (label :limit-width 28 :text SELECTED)))
+                (box :halign "end"
+                    (button :class "icon" :style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_wifimenu")))
 
             (box :class "display" :orientation "v"
                 (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 1"
@@ -38,16 +43,17 @@
             (button :class "infotext" :valign "center" :halign "center"
     				(label :limit-width 28 :class "ssid" :halign "start" :text UPDATENETS))
 
-            (button :class "settingsbutton" :valign "center" :halign "center" :onclick "nm-connection-editor &"
+            (button :class "settingsbutton" :valign "center" :halign "center" :onclick "./toggle_wifimenu & nm-connection-editor &"
     				(label :limit-width 28 :class "ssid" :halign "start" :text "Network Settings"))
 )))
 
 ;;passwordbox
 (defwidget passwordbox []
-    (box :class "dockbox"
-        (box :class "passwordbox" :orientation "h" :spacing 16 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-            (label :class "passwordbox" :halign "start" :text "Password:")
-            (input :class "passwordbox" :onaccept "../scripts/wifinetworks --connect {}" :password "true" :spacing 5))))
+    (box :class "dockbox" :space-evenly "false"
+        (box :class "passwordbox" :orientation "h" :spacing 16 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (label :class "passwordprompt" :text "Password:")
+            (input :onaccept "../scripts/wifinetworks --connect {}" :password "true" :spacing 5))
+            (button :class "passicon":style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_passwordbox")))
 
 ;; ** Windows *************************************************************************
 

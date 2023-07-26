@@ -13,9 +13,10 @@
 ;;soundmenu
 (defwidget soundmenu []
     (box :class "dockbox"
-        (box :class "sliderbox" :valign "fill" :halign "start" :space-evenly false
+        (box :class "sliderbox" :valign "fill" :halign "start" :space-evenly "false"
+            (button :class "closeicon":style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_soundmenu")
             (scale :active true :min 0 :max 100 :value VOLUME :orientation "h" :halign "end" :onchange "amixer sset 'Master' {}%")
-            (button :onclick "pavucontrol &"            
+            (button :onclick "./toggle_soundmenu & pavucontrol &"            
                 (label :halign "end" :class "infotext" :text "Settings"))
 
 )))

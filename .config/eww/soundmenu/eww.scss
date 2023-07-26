@@ -28,12 +28,19 @@
   all: unset;
   background-color: #5C5C5C;
   border-radius: 50px;
-  min-height: 5px;
-  min-width: 190px;
+  min-height: 10px;
+  min-width: 165px;
   margin-left: 15px;
 }
 .infotext{
   margin-left: 15px;
+}
+.closeicon {
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 25px;
+	min-width: 25px;
+	margin: 3px -5px 0px 10px;
 }
 
 /** EOF *************************************************/

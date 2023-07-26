@@ -25,4 +25,5 @@ $SCREENSHOT
 convert $IMAGE -blur 0x10 $IMAGE
 #convert $IMAGE $LOCK -gravity center -composite $IMAGE
 i3lock -i $IMAGE
+amixer set Master mute
 rm $IMAGE

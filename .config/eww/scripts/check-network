@@ -16,7 +16,7 @@ net_stat () {
 		fi
 	else
 		echo "Offline"
-		echo "images/icons/tray/no-wifi.svg"	
+		echo "images/icons/tray/offline.svg"	
 	fi
 }
 
