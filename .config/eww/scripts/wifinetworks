@@ -18,7 +18,12 @@ if  [[ $1 = "--update" ]]; then
 fi
 
 if  [[ $1 = "--getselected" ]]; then
-    echo "Active: $(iwgetid -r)"
+    active=$(iwgetid -r)
+    if  [[ "$active" == "" ]]; then
+        echo "Not Connected to WiFi"
+    else
+        echo "$active"
+    fi
 fi
 
 if  [[ $1 = "--nets" ]]; then
@@ -26,7 +31,7 @@ if  [[ $1 = "--nets" ]]; then
 fi
 
 if  [[ $1 = "--sets" ]]; then
-    cat $cache | cut -d '|' -f $2 > "$HOME/.config/eww/arin/scripts/wifimenu/selected"
+    cat $cache | cut -d '|' -f $2 > "$HOME/.config/eww/scripts/wifimenu/selected"
     ${EWW} --config "$CFG" close wifimenu
     `../wifimenu/toggle_passwordbox`
 fi
@@ -34,7 +39,7 @@ fi
 if  [[ $1 = "--connect" ]]; then
     ${EWW} --config "$CFG" close passwordbox
     prefix="nmcli dev wifi connect"
-    selected=$(cat "$HOME/.config/eww/arin/scripts/wifimenu/selected")
+    selected=$(cat "$HOME/.config/eww/scripts/wifimenu/selected")
     suffix="password"
     cmd="$prefix $selected $suffix \"$2\""
     eval $cmd

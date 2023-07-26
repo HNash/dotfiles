@@ -12,6 +12,9 @@
 (defpoll W4ICON :interval "300ms" `scripts/workspaces --4`)
 (defpoll W5ICON :interval "300ms" `scripts/workspaces --5`)
 
+;; Brightness vars
+(defpoll BRIGHTPERC :interval "1s" `brightnessctl -m | cut -d , -f 4`)
+
 ;; Battery vars
 (defpoll BATICON :interval "1m" `scripts/battery --icon`)
 (defpoll BATPERC :interval "1m" `scripts/battery --perc`)
@@ -26,7 +29,7 @@
 
 ;; Time vars
 (defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
-(defpoll DATE :interval "5s" `date +\"%a, %B %d\"`)
+(defpoll DATE :interval "5s" `date +\"%d/%b\"`)
 
 ;; ** Widgets *************************************************************************
 
@@ -56,23 +59,27 @@
                     (box :style "background-image: url('${W5ICON}');" :class "trayicon")))
 
             (box :orientation "h" :spacing 15 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-				(button :onclick "scripts/widget_apps --pow"
+                (button :onclick "brightnessmenu/toggle_brightnessmenu"
+					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+						(box :style "background-image: url('images/icons/tray/brightness.svg');" :class "trayicon")
+							(label :class "infotext" :halign "start" :text BRIGHTPERC)))
+                (button
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${BATICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text BATPERC)))
-				(button :onclick "scripts/volume --toggle" :onrightclick "soundmenu/toggle_soundmenu"
+                (button :onclick "scripts/volume --toggle" :onrightclick "soundmenu/toggle_soundmenu"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${VOLICON}');" :class "trayicon")
-							(label :class "infotext" :halign "start" :text VOLUME)))
-				(button :onclick "wifimenu/toggle_wifimenu"
+							(label :class "infotext" :halign "start" :text VOLUME)))				
+                (button :onclick "wifimenu/toggle_wifimenu"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text NETSTAT)))
                 (button :onclick ""
 					(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :class "clockbox")
-							(label :class "time" :halign "start" :text TIME))))))
-
+							(label :class "time" :halign "start" :text DATE)
+                            (label :class "time" :halign "start" :text TIME))))))
 
 ;; ** Windows *************************************************************************
 

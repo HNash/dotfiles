@@ -1,38 +1,37 @@
 ;; **
-;; ** Wifi Menu Eww
+;; ** Brightness Menu Eww
 ;; ** Created by : @HNash
 ;; **
 
 ;; ** Variables ***********************************************************************
 
-;; Sound vars
-(defpoll VOLUME :interval "200ms" `../scripts/volume --getclean`)
+;; Brightness vars
+(defpoll BRIGHTNESS :interval "500ms" `brightnessctl -m | cut -d , -f 4 | cut -d % -f 1`)
 
 ;; ** Widgets *************************************************************************
 
-;;soundmenu
-(defwidget soundmenu []
+;; brightnessmenu
+(defwidget brightnessmenu []
     (box :class "dockbox" :orientation "v" :space-evenly "false"
 
-        (button :class "closeicon" :halign "center" :style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_soundmenu")
+        (button :class "closeicon" :halign "center" :style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_brightnessmenu")
 
         (box :class "sliderbox" :valign "fill" :halign "center" :space-evenly "false"
-            (scale :active true :flipped "true" :min 0 :max 100 :value VOLUME :orientation "v" :onchange "amixer sset 'Master' {}%"))
-
-        (button :class "closeicon" :halign "center" :style "background-image: url('../images/icons/tray/settings.png');" :onclick "./toggle_soundmenu & pavucontrol &")
-
+            (scale :flipped "true" :min 0 :max 101 :value BRIGHTNESS :orientation "v" :onchange "brightnessctl set {}%"))
+        
+        (button :class "soundicon" :halign "center" :style "background-image: url('../images/icons/tray/brightness.svg');" :onclick "")
 ))
 
 ;; ** Windows *************************************************************************
 
-;; soundmenu
-(defwindow soundmenu
+;; brightnessmenu
+(defwindow brightnessmenu
            :monitor 0
-           :geometry (geometry :x "1610px"
+           :geometry (geometry :x "1470px"
                                :y "802px"
                                :width "40px"
                                :height "251px"
                                :anchor "top left")
            :stacking "fg"
            :wm-ignore true
-(soundmenu))
+(brightnessmenu))

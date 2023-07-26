@@ -6,7 +6,7 @@
 ;; ** Variables ***********************************************************************
 
 ;; Network vars
-(defpoll SELECTED :interval "2s" `../scripts/wifinetworks --getselected`)
+(defpoll ACTIVE :interval "2s" `../scripts/wifinetworks --getselected`)
 (defpoll UPDATENETS :interval "10s" `../scripts/wifinetworks --update`)
 (defpoll NETWORK1 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 1`)
 (defpoll NETWORK2 :interval "10s" `../scripts/wifinetworks --nets | cut -d '|' -f 2`)
@@ -19,26 +19,25 @@
 ;;wifimenu
 (defwidget wifimenu []
     (box :class "dockbox"
-        (box :class "wifibox" :orientation "v" :spacing 0 :width 300 :valign "start" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+        (box :class "wifibox" :orientation "v" :spacing 0 :width 300 :valign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
             
-            (box :class "topbar" :space-evenly "true"
-                (box :halign "center"
-                    (button :class "active"
-                        (label :limit-width 28 :text SELECTED)))
+            (box :class "topbar" :space-evenly "false"
+                (box :class "active"  :halign "start" :hexpand "true"
+                    (label :limit-width 28 :text ACTIVE))
                 (box :halign "end"
                     (button :class "icon" :style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_wifimenu")))
 
             (box :class "display" :orientation "v"
-                (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 1"
-    		    		(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK1))
-                (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 2"
-    	    			(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK2))
-                (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 3"
-    				    (label :limit-width 38 :class "ssid" :halign "start" :text NETWORK3))
-                (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 4"
-        				(label :limit-width 38 :class "ssid" :halign "start" :text NETWORK4))
-                (button :class "wifibutton" :valign "center" :halign "center" :onclick "../scripts/wifinetworks --sets 5"
-    				    (label :limit-width 38 :class "ssid" :halign "start" :text NETWORK5)))
+                (button :class "wifibutton" :valign "center" :halign "start" :onclick "../scripts/wifinetworks --sets 1"
+    		    		(label :limit-width 25 :class "ssid" :text NETWORK1))
+                (button :class "wifibutton" :valign "center" :halign "start" :onclick "../scripts/wifinetworks --sets 2"
+    	    			(label :limit-width 25 :class "ssid" :text NETWORK2))
+                (button :class "wifibutton" :valign "center" :halign "start" :onclick "../scripts/wifinetworks --sets 3"
+    				    (label :limit-width 25 :class "ssid" :text NETWORK3))
+                (button :class "wifibutton" :valign "center" :halign "start" :onclick "../scripts/wifinetworks --sets 4"
+        				(label :limit-width 25 :class "ssid" :text NETWORK4))
+                (button :class "wifibutton" :valign "center" :halign "start" :onclick "../scripts/wifinetworks --sets 5"
+    				    (label :limit-width 25 :class "ssid" :text NETWORK5)))
 
             (button :class "infotext" :valign "center" :halign "center"
     				(label :limit-width 28 :class "ssid" :halign "start" :text UPDATENETS))
@@ -60,8 +59,8 @@
 ;; wifimenu
 (defwindow wifimenu
            :monitor 0
-           :geometry (geometry :x "1620px"
-                               :y "806px"
+           :geometry (geometry :x "810px"
+                               :y "402px"
                                :width "300px"
                                :height "170px"
                                :anchor "top left")
@@ -72,8 +71,8 @@
 ;; passwordbox
 (defwindow passwordbox
            :monitor 0
-           :geometry (geometry :x "1618px"
-                               :y "1014px"
+           :geometry (geometry :x "810px"
+                               :y "524px"
                                :width "300px"
                                :height "32px"
                                :anchor "top left")

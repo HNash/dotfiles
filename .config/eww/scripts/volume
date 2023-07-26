@@ -8,7 +8,7 @@ get_volume() {
 		volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $4}' | tr -d '[]'`
 		echo "$volume"
 	else
-		echo "Mute"
+		echo "- %"
 	fi
 }
 
@@ -19,7 +19,7 @@ get_volume_clean() {
 		volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $4}' | tr -d '[]' | cut -d % -f 1`
 		echo "$volume"
 	else
-		echo "Mute"
+		echo "- %"
 	fi
 }
 

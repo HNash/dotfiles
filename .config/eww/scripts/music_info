@@ -30,7 +30,7 @@ get_artist() {
 	artist=`mpc -f %artist% current`
     artist=" $artist"
 	if [[ -z "$artist" ]]; then
-		echo ""
+		echo "Offline"
 	else
 		echo "$artist"
 	fi	
