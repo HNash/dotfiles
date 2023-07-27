@@ -29,24 +29,16 @@
 
 ;; Time vars
 (defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
-(defpoll DATE :interval "5s" `date +\"%d/%b\"`)
+(defpoll DATE :interval "5s" `date +\"%a, %B %d\"`)
 
 ;; ** Widgets *************************************************************************
 
 ;; bar
 (defwidget bar [] 
 		(box :class "dockbox"
-			(box :orientation "h" :spacing 15 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
                 (button  :onclick "sidebar/toggle_sidebar"
-                    (box :style "background-image: url('images/icons/apps/manjaro.svg');" :class "trayicon"))
-				(button  :onclick "scripts/widget_apps --tr"
-                    (box :style "background-image: url('images/icons/apps/terminal.svg');" :class "trayicon"))
-				(button :onclick "scripts/widget_apps --fm"
-                    (box :style "background-image: url('images/icons/apps/nemo.svg');" :class "trayicon"))
-                (button :onclick "scripts/widget_apps --wb"
-                    (box :style "background-image: url('images/icons/apps/brave.svg');" :class "trayicon")))
-
-            (box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                    (box :style "background-image: url('images/icons/apps/manjaro.svg');" :class "starticon"))
                 (button  :onclick "bspc desktop -f 1"
                     (box :style "background-image: url('${W1ICON}');" :class "trayicon"))
 				(button  :onclick "bspc desktop -f 2"
@@ -56,7 +48,20 @@
                 (button  :onclick "bspc desktop -f 4"
                     (box :style "background-image: url('${W4ICON}');" :class "trayicon"))
                 (button  :onclick "bspc desktop -f 5"
-                    (box :style "background-image: url('${W5ICON}');" :class "trayicon")))
+                    (box :style "background-image: url('${W5ICON}');" :class "trayicon"))
+                (button :class "genicon")
+				(button  :onclick "scripts/widget_apps --tr"
+                    (box :style "background-image: url('images/icons/apps/terminal.svg');" :class "appicon"))
+				(button :onclick "scripts/widget_apps --fm"
+                    (box :style "background-image: url('images/icons/apps/nemo.svg');" :class "appicon"))
+                (button :onclick "scripts/widget_apps --wb"
+                    (box :style "background-image: url('images/icons/apps/brave.svg');" :class "appicon")))
+
+            (box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+                (box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+						(box :class "clockbox")
+							(label :class "time" :halign "start" :text TIME)
+                            (label :class "time" :halign "start" :text DATE)))
 
             (box :orientation "h" :spacing 15 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
                 (button :onclick "brightnessmenu/toggle_brightnessmenu"
@@ -75,11 +80,7 @@
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text NETSTAT)))
-                (button :onclick ""
-					(box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
-						(box :class "clockbox")
-							(label :class "time" :halign "start" :text DATE)
-                            (label :class "time" :halign "start" :text TIME))))))
+)))
 
 ;; ** Windows *************************************************************************
 

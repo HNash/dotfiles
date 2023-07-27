@@ -14,11 +14,12 @@
 }
 
 /** Icons ***********************************/
-.genicon {
+.starticon {
     background-repeat: no-repeat;
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
+    margin: 1px 10px 0px 0px;
 }
 
 .appicon {
@@ -26,8 +27,13 @@
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
+	margin: 1px 5px 0px 0px;
 }
 
+.genicon {
+    background-repeat: no-repeat;
+	margin: 0px 10px 0px 0px;
+}
 /** Clock ********************************************/
 .clockbox {
 	margin : 0px 0px 0px 0px;
@@ -143,7 +149,7 @@
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
-	margin: 1px 0px 0px 0px;;
+	margin: 1px 0px 0px 0px;
 }
 
 .infotext {

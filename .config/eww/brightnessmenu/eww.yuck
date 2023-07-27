@@ -27,7 +27,7 @@
 ;; brightnessmenu
 (defwindow brightnessmenu
            :monitor 0
-           :geometry (geometry :x "1470px"
+           :geometry (geometry :x "1620px"
                                :y "802px"
                                :width "40px"
                                :height "251px"
