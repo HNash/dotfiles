@@ -2,7 +2,7 @@
 <a href = "screen.png">Click here to preview</a><br>
 
 <h2>Overview</h2>
-<b>These dotfiles are configured for xorg, not Wayland</b><br>
+<b>These dotfiles are configured for Xorg, not Wayland</b><br>
 <b>WM:</b> bspwm<br>
 <b>Bar:</b> Eww<br>
 <b>GTK Theme:</b> <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
