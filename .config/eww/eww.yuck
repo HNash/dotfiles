@@ -6,11 +6,11 @@
 ;; ** Variables ***********************************************************************
 
 ;; Workspace vars
-(defpoll W1ICON :interval "300ms" `scripts/workspaces --1`)
-(defpoll W2ICON :interval "300ms" `scripts/workspaces --2`)
-(defpoll W3ICON :interval "300ms" `scripts/workspaces --3`)
-(defpoll W4ICON :interval "300ms" `scripts/workspaces --4`)
-(defpoll W5ICON :interval "300ms" `scripts/workspaces --5`)
+(defpoll W1ICON :interval "1s" `scripts/workspaces --1`)
+(defpoll W2ICON :interval "1s" `scripts/workspaces --2`)
+(defpoll W3ICON :interval "1s" `scripts/workspaces --3`)
+(defpoll W4ICON :interval "1s" `scripts/workspaces --4`)
+(defpoll W5ICON :interval "1s" `scripts/workspaces --5`)
 
 ;; Brightness vars
 (defpoll BRIGHTPERC :interval "1s" `brightnessctl -m | cut -d , -f 4`)
@@ -37,34 +37,34 @@
 (defwidget bar [] 
 		(box :class "dockbox"
 			(box :orientation "h" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-                (button  :onclick "sidebar/toggle_sidebar"
+                (button  :onclick "sidebar/toggle_sidebar" :tooltip "Sidebar"
                     (box :style "background-image: url('images/icons/apps/manjaro.svg');" :class "starticon"))
                 (button  :onclick "bspc desktop -f 1"
-                    (box :style "background-image: url('${W1ICON}');" :class "trayicon"))
+                    (box :style "background-image: url('${W1ICON}');" :class "wsicon"))
 				(button  :onclick "bspc desktop -f 2"
-                    (box :style "background-image: url('${W2ICON}');" :class "trayicon"))
+                    (box :style "background-image: url('${W2ICON}');" :class "wsicon"))
 				(button  :onclick "bspc desktop -f 3"
-                    (box :style "background-image: url('${W3ICON}');" :class "trayicon"))
+                    (box :style "background-image: url('${W3ICON}');" :class "wsicon"))
                 (button  :onclick "bspc desktop -f 4"
-                    (box :style "background-image: url('${W4ICON}');" :class "trayicon"))
+                    (box :style "background-image: url('${W4ICON}');" :class "wsicon"))
                 (button  :onclick "bspc desktop -f 5"
-                    (box :style "background-image: url('${W5ICON}');" :class "trayicon"))
+                    (box :style "background-image: url('${W5ICON}');" :class "wsicon"))
                 (button :class "genicon")
-				(button  :onclick "scripts/widget_apps --tr"
+				(button  :onclick "scripts/widget_apps --tr" :tooltip "Terminal"
                     (box :style "background-image: url('images/icons/apps/terminal.svg');" :class "appicon"))
-				(button :onclick "scripts/widget_apps --fm"
+				(button :onclick "scripts/widget_apps --fm" :tooltip "File Manager"
                     (box :style "background-image: url('images/icons/apps/nemo.svg');" :class "appicon"))
-                (button :onclick "scripts/widget_apps --wb"
+                (button :onclick "scripts/widget_apps --wb" :tooltip "Brave Browser"
                     (box :style "background-image: url('images/icons/apps/brave.svg');" :class "appicon")))
 
             (box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
                 (box :orientation "h" :spacing 0 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :class "clockbox")
-							(label :class "time" :halign "start" :text TIME)
-                            (label :class "time" :halign "start" :text DATE)))
+                            (button :onclick "calendar/toggle_calendar"
+    							(label :class "time" :halign "start" :text TIME :tooltip DATE))))
 
             (box :orientation "h" :spacing 15 :valign "center" :halign "end" :space-evenly "false" :vexpand "false" :hexpand "false"
-                (button :onclick "brightnessmenu/toggle_brightnessmenu"
+                (button :onclick "brightnessmenu/toggle_brightnessmenu" :tooltip "Set Brightness"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('images/icons/tray/brightness.svg');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text BRIGHTPERC)))
@@ -72,11 +72,11 @@
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${BATICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text BATPERC)))
-                (button :onclick "scripts/volume --toggle" :onrightclick "soundmenu/toggle_soundmenu"
+                (button :onrightclick "scripts/volume --toggle" :onclick "soundmenu/toggle_soundmenu" :tooltip "Sound Menu"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${VOLICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text VOLUME)))				
-                (button :onclick "wifimenu/toggle_wifimenu"
+                (button :onclick "wifimenu/toggle_wifimenu" :tooltip "WiFi Menu"
 					(box :orientation "h" :spacing 5 :valign "center" :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
 						(box :style "background-image: url('${WIFIICON}');" :class "trayicon")
 							(label :class "infotext" :halign "start" :text NETSTAT)))

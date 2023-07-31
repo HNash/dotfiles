@@ -1,0 +1,37 @@
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: feather;
+	font-family: "JetBrains Mono";
+	color: #FFFFFF;
+}
+
+/** Sidebar ***********************************/
+.dockbox {
+	background-color: #2c2c2c; 
+	border: 1px solid #5C5C5C;
+    border-radius: 12px;
+	padding: 5px 15px 15px 15px;
+}
+
+.section {
+	background-color: #313131; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+    min-height: 75px;
+}
+
+.header {
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+    margin: 5px -5px 5px 0px;
+}
+
+.closeicon {
+    background-repeat: no-repeat;
+	background-size: 25px;
+	min-height: 25px;
+	min-width: 25px;
+	margin: 0px -5px 0px 0px;
+}
+/** EOF *************************************************/

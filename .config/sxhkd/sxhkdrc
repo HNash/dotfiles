@@ -18,10 +18,6 @@ alt + Return
 alt + shift + Return
   ~/.local/scripts/scpad
 
-# GUI System monitor
-ctrl + alt + Delete
-  htop &
-
 # Rofi app launcher
 alt + d
   rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/eww/rasis/launcher.rasi &
@@ -130,9 +126,3 @@ XF86AudioPrev
 
 XF86AudioNext
   mpc next
-
-XF86MonBrightnessDown
-  xrandr --output eDP-1 --brightness 0.5
-
-XF86MonBrightnessUp
-  xrandr --output eDP-1 --brightness 1

@@ -1,5 +1,5 @@
 ;; **
-;; ** My Eww Bar
+;; ** My Side Bar
 ;; ** Created by : @HNash
 ;; **
 
@@ -18,8 +18,7 @@
 (defpoll ARTIST :interval "1s" `../scripts/music_info --artist`)
 (defpoll COVER :interval "1s" `../scripts/music_info --cover`)
 (defpoll STATUS :interval "1s" `../scripts/music_info --status`)
-(defpoll MTIMEC :interval "1s" `../scripts/music_info --ctime`)
-(defpoll MTIMET :interval "1s" `../scripts/music_info --ttime`)
+(defpoll MTIME :interval "1s" `../scripts/music_info --time`)
 
 ;; Toggle vars
 (defpoll BLUETOOTH :interval "1s" `../scripts/toggles --btinfo`)
@@ -34,7 +33,7 @@
 
 ;; sidebar
 (defwidget sidebar []
-    (box :class "dockbox" :orientation "v" :spacing 15
+    (box :class "dockbox" :orientation "v" :spacing 15 :space-evenly false
 
         (box :class "doublesection" :orientation "h" :spacing 15
             (box :class "section" :orientation "h"
@@ -43,7 +42,7 @@
                 (button :class "togglebutton" :halign "start" :style "background-image: url('${WIFI}');" :onclick "../scripts/toggles --wftog")
                 (button :class "togglebutton" :halign "center" :style "background-image: url('${BLUETOOTH}');" :onclick "../scripts/toggles --bttog")
                 (button :class "togglebutton" :halign "end" :style "background-image: url('${AIRPLANE}');" :onclick "../scripts/toggles --aptog")))
-    
+
        (box :class "section" :orientation "h" :spacing 15
             (box :class "weatherbox" :orientation "h" :halign "start"
                 (label :wrap "true" :class "weatherstat" :text STAT))
@@ -52,10 +51,13 @@
 				(label :class "weathertemp" :text TEMP)))
 
         (box :class "section" :orientation "h" :spacing 75
-            (box :class "musicbuttons" :orientation "h" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
-       				(button :style "background-image: url('../images/icons/sidebar/prev.svg');" :class "trackbutton" :onclick "../scripts/music_info --prev")
-        			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "../scripts/music_info --toggle")
-        			(button :style "background-image: url('../images/icons/sidebar/next.svg');" :class "trackbutton" :onclick "../scripts/music_info --next"))
+            (box :orientation "v" :space-evenly "false" :valign "center"
+                (box :class "sliderbox" :halign "center" :space-evenly "false"
+                    (scale :active true :flipped "false" :min 0 :max 100 :value MTIME :orientation "h" :onchange "mpc seek {}%"))
+                (box :class "musicbuttons" :orientation "h" :spacing 0 :halign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
+           				(button :style "background-image: url('../images/icons/sidebar/prev.svg');" :class "trackbutton" :onclick "../scripts/music_info --prev")
+            			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "../scripts/music_info --toggle")
+            			(button :style "background-image: url('../images/icons/sidebar/next.svg');" :class "trackbutton" :onclick "../scripts/music_info --next")))
     
             (box :class "musicbox" :orientation "v" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
     				(label :class "song" :halign "start" :wrap "false" :limit-width 16 :text SONG)
@@ -76,9 +78,9 @@
 (defwindow sidebar
            :monitor 0
            :geometry (geometry :x "0px"
-                               :y "648px"
+                               :y "651px"
                                :width "420px"
-                               :height "400px"
+                               :height "397px"
                                :anchor "top left")
            :stacking "fg"
            :reserve (struts :distance "31px" :side "bottom")

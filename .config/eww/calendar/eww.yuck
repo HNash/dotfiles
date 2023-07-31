@@ -1,0 +1,40 @@
+;; **
+;; ** Calendar
+;; ** Created by : @HNash
+;; **
+
+;; ** Variables ***********************************************************************
+
+;; Calendar vars
+(defpoll DATE :interval "10s" `date +\"%a, %B %d\"`)
+(defpoll DAY :interval "1m" `date +%d`)
+(defpoll MONTH :interval "1m" `date +%m`)
+(defpoll YEAR :interval "1m" `date +%Y`)
+
+;; ** Widgets *************************************************************************
+
+;; usercalendar
+(defwidget usercalendar []
+    (box :class "dockbox" :orientation "v" :space-evenly false
+        (box :class "header" :orientation "h"
+            (label :text DATE :halign "start")
+            (button :class "closeicon" :halign "end" :style "background-image: url('../images/icons/close.svg');" :onclick "./toggle_calendar"))
+        (box :class "section" :orientation "h" :spacing 15
+            (calendar :day DAY :month MONTH :year YEAR :show-details true)))
+)
+
+;; ** Windows *************************************************************************
+
+;; usercalendar
+(defwindow usercalendar
+           :monitor 0
+           :geometry (geometry :x "780px"
+                               :y "827px"
+                               :width "360px"
+                               :height "200px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "31px" :side "bottom")
+           :windowtype "dock"
+           :wm-ignore false
+(usercalendar))

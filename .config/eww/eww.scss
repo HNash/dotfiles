@@ -13,6 +13,9 @@
 	padding: 0px 10px 0px 10px;
 }
 
+tooltip.background{
+    background-color: #2c2c2c;
+}
 /** Icons ***********************************/
 .starticon {
     background-repeat: no-repeat;
@@ -20,6 +23,19 @@
 	min-height: 20px;
 	min-width: 20px;
     margin: 1px 10px 0px 0px;
+}
+
+.wsicon {
+    background-repeat: no-repeat;
+	background-size: 15px;
+	min-height: 18px;
+	min-width: 15px;
+	margin: 4px 0px 0px 0px;
+}
+
+.genicon {
+    background-repeat: no-repeat;
+	margin: 0px 10px 0px 0px;
 }
 
 .appicon {
@@ -30,9 +46,12 @@
 	margin: 1px 5px 0px 0px;
 }
 
-.genicon {
+.trayicon {
     background-repeat: no-repeat;
-	margin: 0px 10px 0px 0px;
+	background-size: 20px;
+	min-height: 20px;
+	min-width: 20px;
+	margin: 1px 0px 0px 0px;
 }
 /** Clock ********************************************/
 .clockbox {
@@ -142,14 +161,6 @@
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	font-weight : bold;
-}
-
-.trayicon {
-    background-repeat: no-repeat;
-	background-size: 20px;
-	min-height: 20px;
-	min-width: 20px;
-	margin: 1px 0px 0px 0px;
 }
 
 .infotext {

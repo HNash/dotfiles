@@ -34,6 +34,7 @@
 <li>nm-connection-editor</li>
 <li>nmcli</li>
 <li>bluetoothctl</li>
+<li>brightnessctl</li>
 <li>curl</li>
 <li>nmcpcpp</li>
 <li>jq</li>
@@ -47,7 +48,7 @@
 <li>scrot</li>
 <li>imagemagick</li>
 </ul>
-<li>Eww Widget Bar</li>
+<li>Eww</li>
 <ul>
 <li>rustc</li>
 <li>cargo</li>
