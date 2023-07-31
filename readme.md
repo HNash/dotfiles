@@ -20,7 +20,7 @@
 </ul>
 
 <h2>Dependencies</h2>
-
+About half of these will be included with most distributions by default, but it's best to check that they are installed.<br>
 <b>Packages</b>
 <ul>
 <li>bspwm</li>
