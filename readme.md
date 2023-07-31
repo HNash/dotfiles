@@ -15,7 +15,7 @@
 <h2>Before Installing</h2>
 <ul>
 <li>Put .config/eww/scripts/lock.sh in /usr/bin/</li>
-<li>bspwm turns on tap to click using my specific touchpad ID. See "Essential Configuration" file for more information.</li>
+<li>bspwm turns on tap to click using my specific touchpad ID. See .config/bspwm/bspwmrc for more information.</li>
 <li>The scratchpad script in .local/scripts uses kitty and requires xdotool. Another terminal can used.</li>
 </ul>
 
