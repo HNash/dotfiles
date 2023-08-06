@@ -22,7 +22,7 @@ tooltip.background{
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
-    margin: 1px 10px 0px 0px;
+    margin: 1px 5px 0px 0px;
 }
 
 .wsicon {
@@ -48,10 +48,12 @@ tooltip.background{
 
 .trayicon {
     background-repeat: no-repeat;
+    background-color: #5c5c5c;
+    border-radius: 12px;
 	background-size: 20px;
 	min-height: 20px;
 	min-width: 20px;
-	margin: 1px 0px 0px 0px;
+	margin: 2px 0px 0px 0px;
 }
 /** Clock ********************************************/
 .clockbox {
@@ -70,89 +72,24 @@ tooltip.background{
 	margin : 1px 0px 0px 0px;
 }
 
-/** Weather ********************************************/
-.weatherbox {
-	margin : 0px 15px 0px 0px;
-}
-
-.weatherstat{
-	font-size : 14px;
-	font-weight : normal;
-	margin : 1px 10px 0px 0px;
-}
-
-.weathericon {
-	font-family: Iosevka Nerd Font;
-	font-size : 20px;
-	font-weight : normal;
-    margin : 0px 0px 0px 0px;
-}
-
-.weathertemp {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 0px 0px -10px;
-}
-
-/** Music *************************************************/
-.album_art {
-    background-repeat: no-repeat;
-	background-size: 0px;
-	min-height: 0px;
-	min-width: 0px;
-	margin: 0px;
-	border-radius: 0px;
-}
-
-.musicbox {
-	margin : 0px 0px 0px 0px;
-}
-
-.song {
-	font-size : 14px;
-	font-weight : normal;
-	margin : 1px 0px 0px 0px;
-}
-
-.musictime {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 0px 0px 0px;
-}
-
-.musictimet {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 10px 0px 0px;
-}
-
-.artist {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 0px 0px 0px;
-}
-
-.musicbuttons {
-	margin : 0px 10px 0px 10px;
-}
-
-.playbutton {
-    background-repeat: no-repeat;
-	background-size: 20px;
-	min-height: 20px;
-	min-width: 20px;
-	margin: 1px 10px 0px 10px;
-}
-
-.trackbutton {
-    background-repeat: no-repeat;
-	background-size: 16px;
-	min-height: 16px;
-	min-width: 16px;
-	margin: 3px 0px 0px 0px;
-}
 
 /** System *************************************************/
+.sliderbox scale trough highlight {
+  all: unset;
+  background-color: #FFFFFF;
+  color: #2C2C2C;
+  border-radius: 5px;
+}
+.sliderbox scale trough {
+  all: unset;
+  background-color: #2c2c2c;
+  border-radius: 12px;
+  min-height: 10px;
+  min-width: 150px;
+  margin-left: 25px;
+  margin-right: 5px;
+}
+
 .mails {
 	background-color: #FFC8C8;
 	border: 0px solid #161616;
@@ -164,12 +101,12 @@ tooltip.background{
 }
 
 .infotext {
-	background-color: #2c2c2c; 
+    background-color: #5c5c5c;
 	border: 0px solid #161616;
-	border-radius: 0px;
+	border-radius: 12px;
 	font-size : 14px;
 	padding: 0px 0px 0px 0px;
-	margin: 1px 0px 0px 0px;;
+	margin: 0px 6px 0px 25px;
 	font-weight : normal;
 }
 

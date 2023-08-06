@@ -11,7 +11,8 @@
 (defpoll TEMP :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --temp`)
 (defpoll HEX :interval "15m" `../scripts/weather_info --getdata  & ../scripts/weather_info --hex`)
 (defpoll TIME :interval "5s" `date +\"%I:%M %p\"`)
-(defpoll DATE :interval "5s" `date +\"%a, %B %d\"`)
+(defpoll DAY :interval "5s" `date +\"%A,\"`)
+(defpoll DATE :interval "5s" `date +\"%B %d\"`)
 
 ;; Music vars
 (defpoll SONG :interval "1s" `../scripts/music_info --song`)
@@ -21,13 +22,19 @@
 (defpoll MTIME :interval "1s" `../scripts/music_info --time`)
 
 ;; Toggle vars
-(defpoll BLUETOOTH :interval "1s" `../scripts/toggles --btinfo`)
 (defpoll WIFI :interval "1s" `../scripts/toggles --wfinfo`)
+(defpoll BLUETOOTH :interval "1s" `../scripts/toggles --btinfo`)
+(defpoll TOUCHPAD :interval "1s" `../scripts/toggles --tpinfo`)
 (defpoll AIRPLANE :interval "1s" `../scripts/toggles --apinfo`)
 
+;; Disk vars
+(defpoll DISKUSED :interval "1m" `echo "Used: $(df -h / | awk '{if(NR==2){print $3}}')"`)
+(defpoll DISKFREE :interval "1m" `echo "Free: $(df -h / | awk '{if(NR==2){print $4}}')"`)
+(defpoll DISKPERC :interval "1m" `df -h / | awk '{if(NR==2){print $5}}' | tr -d %`)
+
 ;; User
-(defvar IMAGE "images/profile.jpg")
-(defpoll USER :interval "10m" `whoami`)
+(defvar IMAGE "../images/profile.png")
+(defpoll USER :interval "15m" `whoami`)
 
 ;; ** Widgets *************************************************************************
 
@@ -37,20 +44,28 @@
 
         (box :class "doublesection" :orientation "h" :spacing 15
             (box :class "section" :orientation "h"
-                (label :class "date" :halign "center" :wrap "false" :limit-width 24 :text DATE))
-            (box :class "togglesection" :orientation "h"
-                (button :class "togglebutton" :halign "start" :style "background-image: url('${WIFI}');" :onclick "../scripts/toggles --wftog")
+                (button :class "profile" :halign "center" :style "background-image: url('${IMAGE}');")
+                (label :class "user" :halign "center" :wrap "false" :limit-width 24 :text USER))
+            (box :class "togglesection" :orientation "h" :spacing 10
+                (button :class "togglebutton" :halign "center" :style "background-image: url('${WIFI}');" :onclick "../scripts/toggles --wftog")
                 (button :class "togglebutton" :halign "center" :style "background-image: url('${BLUETOOTH}');" :onclick "../scripts/toggles --bttog")
-                (button :class "togglebutton" :halign "end" :style "background-image: url('${AIRPLANE}');" :onclick "../scripts/toggles --aptog")))
+                (button :class "touchpadbutton" :halign "center" :style "background-image: url('${TOUCHPAD}');" :onclick "../scripts/toggles --tptog")
+                (button :class "togglebutton" :halign "center" :style "background-image: url('${AIRPLANE}');" :onclick "../scripts/toggles --aptog")))
 
-       (box :class "section" :orientation "h" :spacing 15
-            (box :class "weatherbox" :orientation "h" :halign "start"
-                (label :wrap "true" :class "weatherstat" :text STAT))
-            (box :class "weatherbox" :orientation "h" :halign "end"
-				(label :class "weathericon" :style "color: ${HEX};" :text ICON)
-				(label :class "weathertemp" :text TEMP)))
 
-        (box :class "section" :orientation "h" :spacing 75
+
+       (box :class "doublesection" :orientation "h" :spacing 15 :space-evenly false            
+            (box :class "section" :orientation "h"
+                (label :wrap "true" :class "weatherstat" :text STAT :halign "start")
+				(label :class "weathericon" :style "color: ${HEX};" :text "${ICON}${TEMP}" :halign "end"))
+            (box :class "section"
+                (box :class "clockbox" :orientation "v"
+                    (label :wrap "true" :class "day" :text DAY :halign "center")
+                    (label :wrap "true" :class "date" :text DATE :halign "center"))))
+
+
+
+        (box :class "section" :orientation "h" :spacing 65
             (box :orientation "v" :space-evenly "false" :valign "center"
                 (box :class "sliderbox" :halign "center" :space-evenly "false"
                     (scale :active true :flipped "false" :min 0 :max 100 :value MTIME :orientation "h" :onchange "mpc seek {}%"))
@@ -59,9 +74,38 @@
             			(button :style "background-image: url('${STATUS}');" :class "playbutton" :onclick "../scripts/music_info --toggle")
             			(button :style "background-image: url('../images/icons/sidebar/next.svg');" :class "trackbutton" :onclick "../scripts/music_info --next")))
     
-            (box :class "musicbox" :orientation "v" :spacing 5 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+            (box :class "musicbox" :orientation "v" :spacing 5 :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false"
     				(label :class "song" :halign "start" :wrap "false" :limit-width 16 :text SONG)
                     (label :class "artist" :halign "start" :wrap "false" :limit-width 22 :text ARTIST)))
+
+
+
+        (box :class "sectionlarge" :orientation "h" :space-evenly false :spacing 25 
+
+            (box :class "disksection" :orientation "v" :space-evenly false :spacing 10 :valign "center"
+                (circular-progress :class "diskcircle" :start-at 75 :thickness 30 :value DISKPERC)
+                (label :class "disk" :text DISKUSED)
+                (label :class "disk" :text DISKFREE))
+
+            (box :class "appsection" :orientation "v" :spacing 10 :space-evenly false
+                (box :orientation "h" :spacing 30 :space-evenly false
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/search.svg');" :onclick "rofi -no-config -no-lazy-grab -show drun -modi drun -theme ../rasis/launcher.rasi &")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/terminal.svg');" :onclick "kitty ~ & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/brave.svg');" :onclick "brave & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/nemo.svg');" :onclick "nemo & ./toggle_sidebar"))
+                (box :orientation "h" :spacing 30 :space-evenly false
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/gmail.svg');" :onclick "brave --new-window 'mail.google.com' & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/whatsapp.svg');" :onclick "brave --new-window 'web.whatsapp.com' & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/signal.svg');" :onclick "signal-desktop & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/discord.svg');" :onclick "discord & ./toggle_sidebar"))
+                (box :orientation "h" :spacing 30 :space-evenly false
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/word.svg');" :onclick "freeoffice-textmaker & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/excel.svg');" :onclick "freeoffice-planmaker & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/youtube-music.svg');" :onclick "brave --new-window 'music.youtube.com' & ./toggle_sidebar")
+                    (button :class "appicon" :style "background-image: url('../images/icons/apps/systemsettings.svg');" :onclick "manjaro-settings-manager & ./toggle_sidebar")
+)))
+
+
         
         (box :class "togglesection" :orientation "h"
             (button :style "background-image: url('../images/icons/sidebar/sys-lock.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../scripts/system --lock")
@@ -78,9 +122,9 @@
 (defwindow sidebar
            :monitor 0
            :geometry (geometry :x "0px"
-                               :y "651px"
+                               :y "504px"
                                :width "420px"
-                               :height "397px"
+                               :height "544px"
                                :anchor "top left")
            :stacking "fg"
            :reserve (struts :distance "31px" :side "bottom")

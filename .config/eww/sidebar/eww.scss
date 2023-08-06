@@ -22,6 +22,15 @@
     min-height: 80px;
 }
 
+.sectionlarge{
+	background-color: #313131; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+	padding: 0px 15px 0px 15px;
+    min-height: 80px;
+    min-height: 160px;
+}
+
 .doublesection{
 	background-color: #2c2c2c; 
 	border: 0px solid #b1c1a1;
@@ -29,30 +38,51 @@
     min-height: 80px;
 }
 
+.disksection {
+	background-color: #313131; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+	margin : 0px 0px 0px 25px;
+}
+
+.appsection {
+	background-color: #313131; 
+	border: 0px solid #b1c1a1;
+    border-radius: 12px;
+	padding: 2px 0px 0px 15px;
+}
+
 .togglesection {
 	background-color: #2C2C2C; 
 	border: 0px solid #b1c1a1;
     border-radius: 12px;
 	padding: 0px 15px 0px 15px;
-    min-height: 80px;
+    min-height: 40px;
 }
 
 /** Weather ********************************************/
 
 .clockbox {
-	margin : 0px 15px 0px 15px;
+	margin : 0px 0px 0px 0px;
+    min-width: 120px;
 }
 
 .time {
 	font-size : 16px;
 	font-weight : normal;
-	margin : 1px 0px -15px 0px;
+	margin : 0px 0px -15px 0px;
+}
+
+.day {
+	font-size : 16px;
+	font-weight : normal;
+	margin : 0px 0px -15px 0px;
 }
 
 .date {
 	font-size : 16px;
 	font-weight : bold;
-	margin : 0px 0px 0px 0px;
+	margin : -15px 0px 0px 0px;
 }
 
 .weatherbox {
@@ -62,20 +92,21 @@
 .weatherstat{
 	font-size : 16px;
 	font-weight : normal;
-	margin : 1px 10px 0px 15px;
+	margin : 1px 0px 0px 0px;
+    min-width : 105px;
 }
 
 .weathericon {
 	font-family: Iosevka Nerd Font;
 	font-size : 24px;
 	font-weight : normal;
-    margin : 3px 0px 0px 0px;
+    margin : 1px 0px 0px 0px;
 }
 
 .weathertemp {
 	font-size : 16px;
 	font-weight : bold;
-	margin : 1px 15px 0px -5px;
+	margin : 0px 0px 0px 0px;
 }
 
 /** Music *************************************************/
@@ -103,7 +134,7 @@
   background-color: #5C5C5C;
   border-radius: 50px;
   min-height: 5px;
-  min-width: 150px;
+  min-width: 135px;
   margin-top: 15px;
   margin-bottom: 5px;
 }
@@ -114,18 +145,6 @@
 	margin : 1px 0px 0px 0px;
 }
 
-.musictime {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 0px 0px 0px;
-}
-
-.musictimet {
-	font-size : 14px;
-	font-weight : bold;
-	margin : 1px 10px 0px 0px;
-}
-
 .artist {
 	font-size : 14px;
 	font-weight : normal;
@@ -133,7 +152,7 @@
 }
 
 .musicbuttons {
-	margin : 0px 10px 0px 10px;
+	margin : 0px 0px 0px 0px;
 }
 
 .playbutton {
@@ -152,38 +171,62 @@
 	margin: 1px 0px 0px 0px;
 }
 
+/** Apps *************************************************/
+.diskcircle{
+    background-color: #5c5c5c;
+	margin : 0px 0px 0px 0px;
+}
+.disk {
+	font-size : 16px;
+	font-weight : normal;
+	margin : 0px 0px -5px 0px;
+}
+.appicon {
+    background-repeat: no-repeat;
+	background-size: 32px;
+	min-height: 32px;
+	min-width: 32px;
+	margin: 10px 0px 0px 0px;
+}
+
 /** Toggles *************************************************/
 .togglebutton {
     background-repeat: no-repeat;
-	background-size: 42px;
-	min-height: 42px;
-	min-width: 42px;
-	margin: 18px 0px 0px 0px;
+	background-size: 32px;
+	min-height: 32px;
+	min-width: 32px;
+	margin: 24px 0px 0px 0px;
+}
+.touchpadbutton{
+    background-repeat: no-repeat;
+	background-size: 26px;
+	min-height: 26px;
+	min-width: 26px;
+	margin: 27px 0px 0px 0px;
+
 }
 
 /** User *************************************************/
 .profile{
     background-repeat: no-repeat;
-	border: 1px solid #5C5C5C;
-    border-radius: 30px;
 	background-size: 42px;
 	min-height: 42px;
 	min-width: 42px;
-	margin: 18px 0px 20px 15px;
+	margin: 18px 0px 0px -35px;
 }
 
 .user {
 	font-size : 16px;
 	font-weight : normal;
-	margin : 0px 15px 0px -25px;
+	margin : 0px 0px 0px -35px;
 }
 
 /** PowerButtons *************************************************/
 .powericons{
     background-repeat: no-repeat;
-	background-size: 42px;
-	min-height: 42px;
-	min-width: 42px;
-	margin: 0px 0px 0px 0px;
+	background-size: 32px;
+	min-height: 32px;
+	min-width: 32px;
+	margin: 10px 0px 10px 0px;
 }
 /** EOF *************************************************/

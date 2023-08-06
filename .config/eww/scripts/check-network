@@ -11,7 +11,7 @@ net_stat () {
 			echo "Connected"
 			echo "images/icons/tray/wired.svg"
 		else
-			echo "Connected"
+			echo "$SSID"
 			echo "images/icons/tray/wifi.svg"
 		fi
 	else

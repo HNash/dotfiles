@@ -2,6 +2,7 @@
 
 BLUEON=`bluetoothctl show | grep 'Powered' | cut -d ' ' -f 2`
 WIFION=`nmcli dev | grep wlp | sed '1q;d' | grep unavailable`
+TPON=`xinput list-props 19 | grep 210 | awk '{print $4}'`
 
 bluetooth_toggle() {
     if [[ "$BLUEON" == "yes" ]]; then
@@ -19,6 +20,14 @@ wifi_toggle() {
     fi
 }
 
+touchpad_toggle(){
+    if [[ "$TPON" == "1" ]]; then
+        `xinput set-prop 19 210 0`
+    else
+        `xinput set-prop 19 210 1`
+    fi
+}
+
 airplane_toggle() {
     if [[ -z "$WIFION" || "$BLUEON" == "yes" ]]; then
         `nmcli radio wifi off & bluetoothctl power off`
@@ -30,26 +39,34 @@ airplane_toggle() {
 
 if [[ $1 == "--btinfo" ]]; then
     if [[ "$BLUEON" == "yes" ]]; then
-        echo "../images/icons/sidebar/bton.png"
+        echo "../images/icons/sidebar/bton.svg"
     else
-        echo "../images/icons/sidebar/btoff.png"
+        echo "../images/icons/sidebar/btoff.svg"
     fi
 elif [[ $1 == "--wfinfo" ]]; then
     if [[ -z "$WIFION" ]]; then
-        echo "../images/icons/sidebar/wfon.png"
+        echo "../images/icons/sidebar/wfon.svg"
     else
-        echo "../images/icons/sidebar/wfoff.png"
+        echo "../images/icons/sidebar/wfoff.svg"
+    fi
+elif [[ $1 == "--tpinfo" ]]; then
+    if [[ "$TPON" == "1" ]]; then
+        echo "../images/icons/sidebar/tpon.svg"
+    else
+        echo "../images/icons/sidebar/tpoff.svg"
     fi
 elif [[ $1 == "--apinfo" ]]; then
     if [[ -z "$WIFION" || "$BLUEON" == "yes" ]]; then
-        echo "../images/icons/sidebar/apoff.png"
+        echo "../images/icons/sidebar/apoff.svg"
     else
-        echo "../images/icons/sidebar/apon.png"
+        echo "../images/icons/sidebar/apon.svg"
     fi
 elif [[ $1 == "--bttog" ]]; then
     bluetooth_toggle
 elif [[ $1 == "--wftog" ]]; then
     wifi_toggle
+elif [[ $1 == "--tptog" ]]; then
+    touchpad_toggle
 elif [[ $1 == "--aptog" ]]; then
     airplane_toggle
 fi

@@ -27,7 +27,11 @@ main() {
 if [[ $1 == '--icon' ]]; then
 	main
 elif [[ $1 == '--perc' ]]; then
-	echo "${BATTERY}%"
+    if [[ $CHARGE = *"Full"* ]]; then
+		echo "Full"
+    else    
+    	echo "${BATTERY}%"
+    fi
 elif [[ $1 == '--stat' ]]; then
 	echo "$CHARGE"
 fi

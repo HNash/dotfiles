@@ -38,6 +38,7 @@
 <li>curl</li>
 <li>nmcpcpp</li>
 <li>jq</li>
+<li>xdo</li>
 <li>Scratchpad</li>
 <ul>
 <li>xdo</li>
