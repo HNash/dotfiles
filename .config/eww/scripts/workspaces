@@ -6,7 +6,7 @@ ICONACTIVE="$HOME/.config/eww/images/icons/workspaces/active.png"
 
 
 main() {
-    STATUS=$(wmctrl -l | cut -d ' ' -f 3 | grep $SPACE)
+    STATUS=$(wmctrl -l | cut -d ' ' -f 3 | grep $1)
     
     if [[ -z "$STATUS" ]]; then
         echo "$ICONBLANK"
@@ -15,23 +15,8 @@ main() {
     fi
 }
 
-
-SPACE="0"
-
-if [[ $1 == "--2" ]]; then
-    SPACE="1"
-elif [[ $1 == "--3" ]]; then
-    SPACE="2"
-elif [[ $1 == "--4" ]]; then
-    SPACE="3"
-elif [[ $1 == "--5" ]]; then
-    SPACE="4"
-fi
-
-ACTIVE=$(wmctrl -d | grep '*' | cut -d ' ' -f 1)
-
-if [[ "$SPACE" == "$ACTIVE" ]]; then
+if [[ "$1" == "$(xdotool get_desktop)" ]]; then
     echo "$ICONACTIVE"
 else
-    main
+    main $1
 fi
