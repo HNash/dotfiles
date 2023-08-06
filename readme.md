@@ -2,7 +2,7 @@
 <a href = "screen.png">Click here to preview</a><br>
 
 <h2>Overview</h2>
-<b>These dotfiles are configured for Xorg, not Wayland</b><br>
+<b>These dotfiles are configured for a 1920x1080 screen and Xorg, not Wayland</b><br>
 <b>WM:</b> bspwm<br>
 <b>Bar:</b> Eww<br>
 <b>GTK Theme:</b> <a href=https://github.com/vinceliuice/Orchis-theme>Orchis Dark</a> (solid version)<br>
@@ -16,7 +16,10 @@
 <ul>
 <li>Put .config/eww/scripts/lock.sh in /usr/bin/</li>
 <li>bspwm turns on tap to click using my specific touchpad ID. See .config/bspwm/bspwmrc for more information.</li>
+<li>The same is true for the touchpad toggle function in .config/eww/scripts/toggles, which is used by the sidebar touchpad toggle button.</li>
 <li>The scratchpad script in .local/scripts uses kitty and requires xdotool. Another terminal can used.</li>
+<li>The weather section in the sidebar uses OpenWeatherMap's API. Get your key <a href="https://openweathermap.org/api">here</a> and put it in .config/eww/scripts/weather_info along with your city's ID.</li>
+<li>This is set up for a laptop. If the laptop is connected to HDMI, bspwm will set up 5 workspaces and mirror screens, otherwise, it will set up 5 workspaces on the laptop screen. To change this, edit the bspwmrc.</li>
 </ul>
 
 <h2>Dependencies</h2>
